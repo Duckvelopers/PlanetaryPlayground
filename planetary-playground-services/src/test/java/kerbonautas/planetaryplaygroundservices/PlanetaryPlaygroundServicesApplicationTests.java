@@ -1,4 +1,4 @@
-package kerbo.nautas.planetaryplaygroundservices;
+package kerbonautas.planetaryplaygroundservices;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
