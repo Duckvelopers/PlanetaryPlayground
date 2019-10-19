@@ -13,14 +13,14 @@
                     <form>
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SELECTOR_RADIO.TITLE' | translate }}:</mat-label>
-                            <mat-radio-group fxLayout="row" class="radio-group-spacer">
-                                <mat-radio-button value="custom">{{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
+                            <mat-radio-group fxLayout="row" class="radio-group-spacer" (change)="starChange($event)">
+                                <mat-radio-button value="CUSTOM">{{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
                                 </mat-radio-button>
-                                <mat-radio-button value="sun">{{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}
+                                <mat-radio-button value="SUN">{{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}
                                 </mat-radio-button>
-                                <mat-radio-button value="centauri">
+                                <mat-radio-button value="CENTAURI">
                                     {{ 'STAR_FORM.SELECTOR_RADIO.PROXIMA_CENTAURI' | translate }}</mat-radio-button>
-                                <mat-radio-button value="pegasi">{{ 'STAR_FORM.SELECTOR_RADIO.PEGASI' | translate }}
+                                <mat-radio-button value="PEGASI">{{ 'STAR_FORM.SELECTOR_RADIO.PEGASI' | translate }}
                                 </mat-radio-button>
                             </mat-radio-group>
                         </div>
