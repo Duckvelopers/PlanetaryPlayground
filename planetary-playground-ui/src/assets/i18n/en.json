@@ -12,7 +12,14 @@
             "PEGASI": "PEGASI-51"
         },
         "SEQUENCE": {
-            "TITLE": "Select the sequence"
+            "TITLE": "Select the sequence",
+            "SUPERGIANT": "Supergiant",
+            "GIANT": "Giant",
+            "MAIN_SEQUENCE": "Main Sequence",
+            "WHITE_DWARF": "White Dwarf"
+        },
+        "STELLAR_CLASSIFICATION": {
+            "TITLE": "Stellar Classification"
         }
     }
 }
