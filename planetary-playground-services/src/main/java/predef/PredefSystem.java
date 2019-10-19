@@ -21,6 +21,7 @@ public class PredefSystem{
 	
 	public static SistemaEstelar homeSistem() {
 		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.0d, 0.0d);
+		star.setName(StarVariables.nombrePlanetasSistemaSolar.SUN);
 		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
 		Planeta mer =  new Planeta(2439, 440d, true, StarVariables.masaPlaneta(3.2d, 23), false,
 				StarVariables.nombrePlanetasSistemaSolar.MERCURIO, 0.0d,0.0d,0.387d,87.96d,58.7d);
@@ -59,6 +60,7 @@ public class PredefSystem{
 	
 	public static SistemaEstelar proximaSystem() {
 		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.M, 0.1221d, 0.0d);
+		star.setName(StarVariables.nombrePlanetasSistemaSolar.PROXIMACENTAURI);
 		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
 		Planeta pro =  new Planeta(2439, 234d, true, StarVariables.masaPlaneta(7.5d, 24), false,
 				StarVariables.nombrePlanetasSistemaSolar.PROXIMAB, 0.0d,0.0d,0.05d,11.18d,0.0d);
@@ -70,6 +72,7 @@ public class PredefSystem{
 	public static SistemaEstelar pegasiSistem() {
 		Float f=null;
 		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.11d, 0.0d);
+		star.setName(StarVariables.nombrePlanetasSistemaSolar.PEGASI_51);
 		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
 		Planeta dim =  new Planeta(135830, 1284d, false, StarVariables.masaPlaneta(0.89d, 27), true,
 				StarVariables.nombrePlanetasSistemaSolar.DIMIDIUM, 0.0d,0.0d,0.0527d,4.23d,0.0d);
