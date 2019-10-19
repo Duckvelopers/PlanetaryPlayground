@@ -70,14 +70,14 @@ public class EsDefs {
 		return str.toString();
 	}
 	
-	// Precisa que se le envie el booleano de si tiene o no atmósfera
+	// Precisa que se le envie el booleano de si es o no gaseoso
 	public static String explicacionTieneAtmosfera(Boolean i) {
 		StringBuilder str = new StringBuilder();
 		
-		if (i) {
-			str.append("");
+		if (!i) {
+			str.append("Los planetas gaseosos tienen una atmósfera muy compleja y activa en su mayoría. Están cubiertos por nubes de gases de cientos de kilómetros de altura que dificultan obtener información del interior.");
 		} else {
-			str.append("");
+			str.append("Los planetas terrestres pueden estar rodeados de una capa de gases llamada atmósfera que puede variar mucho de unos planetas a otros y a lo largo de la vida del planeta.");
 		}
 		
 		return str.toString();
@@ -86,7 +86,8 @@ public class EsDefs {
 	public static String explicacionNombre() {
 		StringBuilder str = new StringBuilder();
 		
-		str.append("");
+		str.append("Aunque algunos planetas tienen nombre propio (cono los del sistema solar), existe una forma sistemática de nombrar planetas extrasolares.\n");
+		str.append("Se les nombra por el mismo nombre que su estrella, añadiendo una letra minúscula en orden de más cercanos a más lejanos de la estrella empezando por “b” y en orden alfabético, reservándose la letra “a” para la estrella.");
 		
 		return str.toString();
 	}
@@ -99,10 +100,16 @@ public class EsDefs {
 		return str.toString();
 	}
 	
-	public static String explicacionCampoMagnetico() {
+	public static String explicacionCampoMagnetico(Boolean i) {
 		StringBuilder str = new StringBuilder();
 		
-		str.append("");
+		if (!i) {
+			str.append("El campo magnético de los planetas terrestres está generado por la rotación de un núcleo metálico en estado líquido, para lo cual se suelen necesitar elevadas temperaturas internas, por lo que se sospecha que los planetas pequeños suelen carecer de campo magnético porque se han enfriado y han perdido su núcleo líquido. El campo magnético protege al planeta del viento solar, una característica muy importante para la existencia de atmósfera y vida.");
+		} else {
+			str.append("El campo magnético de los planetas gaseosos suele ser extraño y diferente en cada caso.\n");
+			str.append("Pueden llegar a ser extremadamente potentes comparados al de la Tierra, o tener geometrías extrañas difíciles de explicar.\n");
+			str.append("Encontrar explicaciones no es fácil debido a la dificultad de explorar estos planetas más allá de la capa de nubes que les envuelve.");
+		}
 		
 		return str.toString();
 	}
@@ -118,7 +125,8 @@ public class EsDefs {
 	public static String explicacionPeriodoOrbital() {
 		StringBuilder str = new StringBuilder();
 		
-		str.append("");
+		str.append("Es el tiempo que tarda el planeta en dar una vuelta completa alrededor de su estrella. \n");
+		str.append("Este tiempo es proporcional a la distancia a la estrella y la masa de esta (su atracción gravitatoria) siguiendo una ley común para todos los planetas del universo llamada Tercera Ley de Kepler.");
 		
 		return str.toString();
 	}
@@ -126,7 +134,10 @@ public class EsDefs {
 	public static String explicacionDuracionDia() {
 		StringBuilder str = new StringBuilder();
 		
-		str.append("");
+		str.append("Es el tiempo que tarda en dar una vuelta completa sobre sí mismo.\n");
+		str.append("Los planetas suelen girar sobre sí mismos en el mismo sentido en el que giran en torno a su estrella, pero hay situaciones especiales por las que pueden adquirir giros anómalos.\n");
+		str.append("Los impactos de meteoritos y otros cuerpos más grandes pueden acelerar o frenar esta rotaciones e incluso invertirla.\n");
+		str.append("Si el planeta está muy cerca de su estrella puede darse “Acoplamiento de Marea”, por la cual un planeta muestra siempre la misma cara a su estrella (igual que la Luna a la Tierra).");
 		
 		return str.toString();
 	}

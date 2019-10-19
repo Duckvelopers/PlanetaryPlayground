@@ -147,7 +147,7 @@ public class Planeta {
 	public void setDescripcion() {
 
 		if (StarVariables.eng) {
-			descripciones.put("CAMPOMAGNETICO", IngDefs.explicacionCampoMagnetico());
+			descripciones.put("CAMPOMAGNETICO", IngDefs.explicacionCampoMagnetico(isSolid));
 			descripciones.put("DISTANCIA", IngDefs.explicacionDistancia(isSolid));
 			descripciones.put("DISTANCIAAESTRELLA", IngDefs.explicacionDistanciaAEstrella());
 			descripciones.put("DURACIONDIA", IngDefs.explicacionDuracionDia());
@@ -158,9 +158,9 @@ public class Planeta {
 			descripciones.put("PRESION", IngDefs.explicacionPresion());
 			descripciones.put("TAMANHO", IngDefs.explicacionTamanho(isSolid));
 			descripciones.put("TEMPERATURA", IngDefs.explicacionTemperatura());
-			descripciones.put("ATMOSFERA", IngDefs.explicacionTieneAtmosfera(haveAtmosphere));
+			descripciones.put("ATMOSFERA", IngDefs.explicacionTieneAtmosfera(isSolid));
 		} else {
-			descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico());
+			descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico(isSolid));
 			descripciones.put("DISTANCIA", EsDefs.explicacionDistancia(isSolid));
 			descripciones.put("DISTANCIAAESTRELLA", EsDefs.explicacionDistanciaAEstrella());
 			descripciones.put("DURACIONDIA", EsDefs.explicacionDuracionDia());
@@ -171,7 +171,7 @@ public class Planeta {
 			descripciones.put("PRESION", EsDefs.explicacionPresion());
 			descripciones.put("TAMANHO", EsDefs.explicacionTamanho(isSolid));
 			descripciones.put("TEMPERATURA", EsDefs.explicacionTemperatura());
-			descripciones.put("ATMOSFERA", EsDefs.explicacionTieneAtmosfera(haveAtmosphere));
+			descripciones.put("ATMOSFERA", EsDefs.explicacionTieneAtmosfera(isSolid));
 		}
 		
 	}
