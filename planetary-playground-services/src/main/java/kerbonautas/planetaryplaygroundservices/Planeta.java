@@ -13,6 +13,7 @@ public class Planeta {
 	private double starDistance;
 	private double orbitalPeriod;
 	private double dayDuration;
+	private String imagen;
 	//TODO hola
 	private String descripcion = "Descripcion de prueba";
 	
@@ -120,5 +121,23 @@ public class Planeta {
 	public void setDayDuration(double dayDuration) {
 		this.dayDuration = dayDuration;
 	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	
 	
 }
