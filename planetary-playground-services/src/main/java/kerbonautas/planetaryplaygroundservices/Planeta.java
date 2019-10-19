@@ -3,40 +3,122 @@ package kerbonautas.planetaryplaygroundservices;
 public class Planeta {
 
 	private int radius;
-	private double temperature;
-	private int numberOfSatellites;
+	private double surfaceTemperature;
 	private boolean isSolid;
 	private double mass;
 	private boolean haveAtmosphere;
 	private String name;
 	private double pressure;
+	private double magneticField;
+	private double starDistance;
+	private double orbitalPeriod;
+	private double dayDuration;
+	//TODO hola
+	private String descripcion = "Descripcion de prueba";
 	
-	public Planeta(int rad, double temp, int sat, boolean solid, double mass, boolean haveAtmosphere, String name, double pressure) {
-		setRadius(rad);
-		setTemperature(temp);
-		setNumberOfSatellites(sat);
-		setIsSolid(solid);
-		setMass(mass);
-		setAtmosphere(haveAtmosphere);
-		setName(name);
-		setPressure(pressure);
+	public Planeta(int radius, double surfaceTemperature, boolean isSolid, double mass, boolean haveAtmosphere,
+			String name, double pressure, double magneticField, double starDistance, double orbitalPeriod,
+			double dayDuration) {
+		super();
+		this.radius = radius;
+		this.surfaceTemperature = surfaceTemperature;
+		this.isSolid = isSolid;
+		this.mass = mass;
+		this.haveAtmosphere = haveAtmosphere;
+		this.name = name;
+		this.pressure = pressure;
+		this.magneticField = magneticField;
+		this.starDistance = starDistance;
+		this.orbitalPeriod = orbitalPeriod;
+		this.dayDuration = dayDuration;
+	}
+
+	public int getRadius() {
+		return radius;
+	}
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+
+	public double getSurfaceTemperature() {
+		return surfaceTemperature;
+	}
+
+	public void setSurfaceTemperature(double surfaceTemperature) {
+		this.surfaceTemperature = surfaceTemperature;
+	}
+
+	public boolean isSolid() {
+		return isSolid;
+	}
+
+	public void setSolid(boolean isSolid) {
+		this.isSolid = isSolid;
+	}
+
+	public double getMass() {
+		return mass;
+	}
+
+	public void setMass(double mass) {
+		this.mass = mass;
+	}
+
+	public boolean isHaveAtmosphere() {
+		return haveAtmosphere;
+	}
+
+	public void setHaveAtmosphere(boolean haveAtmosphere) {
+		this.haveAtmosphere = haveAtmosphere;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getPressure() {
+		return pressure;
+	}
+
+	public void setPressure(double pressure) {
+		this.pressure = pressure;
+	}
+
+	public double getMagneticField() {
+		return magneticField;
+	}
+
+	public void setMagneticField(double magneticField) {
+		this.magneticField = magneticField;
+	}
+
+	public double getStarDistance() {
+		return starDistance;
+	}
+
+	public void setStarDistance(double starDistance) {
+		this.starDistance = starDistance;
+	}
+
+	public double getOrbitalPeriod() {
+		return orbitalPeriod;
+	}
+
+	public void setOrbitalPeriod(double orbitalPeriod) {
+		this.orbitalPeriod = orbitalPeriod;
+	}
+
+	public double getDayDuration() {
+		return dayDuration;
+	}
+
+	public void setDayDuration(double dayDuration) {
+		this.dayDuration = dayDuration;
 	}
 	
-	public void setRadius(int i) {radius = i;}
-	public void setTemperature(double i) {temperature = i;}
-	public void setNumberOfSatellites(int i) {numberOfSatellites = i;}
-	public void setIsSolid(boolean i) {isSolid = i;}
-	public void setMass(double i) {mass = i;}
-	public void setAtmosphere(boolean i) {haveAtmosphere = i;}
-	public void setName(String i) {name = i;}
-	public void setPressure(double i) {pressure = i;}
-	
-	public int getRadius() {return radius;}
-	public double getTemperature() {return temperature;}
-	public int getNumberOfSatellites() {return numberOfSatellites;}
-	public boolean getIsSolid() {return isSolid;}
-	public double getMass() {return mass;}
-	public boolean getAtmosphere() {return haveAtmosphere;}
-	public String getName() {return name;}
-	public double getPressure() {return pressure;}
 }

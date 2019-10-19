@@ -14,6 +14,8 @@ public class Estrella {
 	private double constanteSigma = 5.67 * Math.pow(10, -8);
 	private double constanteLuminosidadSol = 3.86 * Math.pow(10, 26);
 	private double constanteRadioSol = 6.957 * Math.pow(10, 8);
+	//TODO hola
+	private String descripcion = "Descripcion de prueba";
 	
 	public Estrella(int secuencia, String tipoEspectral, double masa, double radio) {
 		super();
