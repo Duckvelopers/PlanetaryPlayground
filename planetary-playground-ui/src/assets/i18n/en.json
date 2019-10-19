@@ -1,4 +1,15 @@
 {
-    "STAR_CONFIGURE": "Configure your star!",
-    "PLANET_DETAIL": "Planet detail"
+    "CARD_HEADLINES": {
+        "STAR_CONFIGURE": "Star configurator",
+        "PLANET_DETAILS": "Planet details"
+    },
+    "STAR_FORM": {
+        "SELECTOR_RADIO": {
+            "TITLE": "Select your kind of Star",
+            "CUSTOM": "Custom",
+            "SUN": "Sun",
+            "PROXIMA_CENTAURI": "Proxima Centauri",
+            "PEGASI": "PEGASI-51"
+        }
+    }
 }

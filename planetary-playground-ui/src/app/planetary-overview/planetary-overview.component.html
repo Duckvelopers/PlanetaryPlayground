@@ -5,16 +5,25 @@
     <div fxFlex fxLayout="row">
         <div fxFlex="30" fxLayout="column" class="form-background">
             <mat-card class="form-style">
-                <mat-card-title>{{ 'STAR_CONFIGURE' | translate }}</mat-card-title>
+                <mat-card-title>{{ 'CARD_HEADLINES.STAR_CONFIGURE' | translate }}</mat-card-title>
                 <mat-card-subtitle>
                     <mat-divider></mat-divider>
                 </mat-card-subtitle>
-                <mat-card-content>Dummy</mat-card-content>
+                <mat-card-content>
+                    <form>
+                        <mat-radio-group>
+                            <mat-radio-button value="custom">{{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}</mat-radio-button>
+                            <mat-radio-button value="sun">{{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}</mat-radio-button>
+                            <mat-radio-button value="centauri">{{ 'STAR_FORM.SELECTOR_RADIO.PROXIMA_CENTAURI' | translate }}</mat-radio-button>
+                            <mat-radio-button value="pegasi">{{ 'STAR_FORM.SELECTOR_RADIO.PEGASI' | translate }}</mat-radio-button>
+                        </mat-radio-group>
+                    </form>
+                </mat-card-content>
             </mat-card>
         </div>
         <div fxFlex fxLayout="column" class="planet-detail-background">
             <mat-card class="planet-detail-style">
-                <mat-card-title>{{ 'PLANET_DETAIL' | translate }}</mat-card-title>
+                <mat-card-title>{{ 'CARD_HEADLINES.PLANET_DETAILS' | translate }}</mat-card-title>
                 <mat-card-subtitle>
                     <mat-divider></mat-divider>
                 </mat-card-subtitle>
