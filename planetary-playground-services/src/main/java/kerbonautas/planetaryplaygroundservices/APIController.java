@@ -38,7 +38,7 @@ public class APIController {
 		//TODO Eliminar del arrayList el planeta eliminado
 	}
 	@RequestMapping(value = "/star",
-			method = RequestMethod.GET,
+			method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
