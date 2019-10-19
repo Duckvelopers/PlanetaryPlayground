@@ -5,7 +5,7 @@
         </div>
         <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets">
             <div fxFlex fxLayoutAlign="space-evenly center">
-                <img src="../../assets/planets/Sun.png" class="planet" (click)="currentSunInfo()" />
+                <img src="../../assets/planets/{{planet.imagen}}.png" class="planet" (click)="currentSunInfo()" />
             </div>
         </div>
     </div>
