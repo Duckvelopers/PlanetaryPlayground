@@ -17,17 +17,6 @@ import predef.PredefSystem;
 @RestController
 public class APIController {
 
-	@RequestMapping(value = "/newStar",
-			method = RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE,
-			consumes = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public String newStar(@RequestBody Map<String, Object> payload) 
-	    throws Exception {
-		//TODO recibir la estrella creada y devolver el sistema solar
-		Gson gson = new Gson();
-		return gson.toJson("");
-	}
 	@RequestMapping(value = "/delPlanet",
 			method = RequestMethod.DELETE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -48,16 +37,20 @@ public class APIController {
 		return gson.toJson(null);
 		//TODO Eliminar del arrayList el planeta eliminado
 	}
-	@RequestMapping(value = "/preDef",
+	@RequestMapping(value = "/star",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String getPredef(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
-		SistemaEstelar se = PredefSystem.getSolarSystem(payload.get("SOLAR").toString());
+		SistemaEstelar se = null;
+		String pre = payload.get("SOLAR").toString();
+		if (!pre.equalsIgnoreCase("CUSTOM"))
+			se = PredefSystem.getSolarSystem(pre);
+		else
+			return null;
 		Gson gson = new Gson();
 		return gson.toJson(se);
-		//TODO Eliminar del arrayList el planeta eliminado
 	}
 }
