@@ -3,7 +3,7 @@ package kerbonautas.planetaryplaygroundservices;
 import java.util.ArrayList;
 
 public class SistemaEstelar {
-	public Estrella estrella;
+	public Estrella star;
 	public ArrayList<Planeta> ArrayPlanets;
 
 }
