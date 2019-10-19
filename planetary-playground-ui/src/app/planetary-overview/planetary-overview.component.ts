@@ -10,14 +10,18 @@ export interface PredefResponse {
 }
 
 export interface Planet {
+  dayDuration: number
   haveAtmosphere: boolean,
+  imagen: string,
   isSolid: boolean,
+  magneticField: number,
   mass: number,
   name: string,
-  numberOfSatellites: number,
+  orbitalPeriod: number,
   pressure: number,
   radius: number,
-  temperature: number
+  starDistance: number,
+  surfaceTemperature: number
 }
 
 export interface StarObject {
@@ -48,6 +52,9 @@ export class PlanetaryOverviewComponent implements OnInit {
 
   sequences: Secuencia[];
 
+  currentSun: StarObject;
+  currentPlanets: Planet[];
+
   constructor(private _http: HttpClient, protected translate: TranslateService) {
     translate.onLangChange.subscribe(event => {
       this.sequences = [
@@ -57,6 +64,8 @@ export class PlanetaryOverviewComponent implements OnInit {
         { name: translate.instant('STAR_FORM.SEQUENCE.WHITE_DWARF'), value: 7 },
       ]
     });
+
+    this.currentPlanets = [];
   }
 
   ngOnInit() {
@@ -68,12 +77,8 @@ export class PlanetaryOverviewComponent implements OnInit {
     }
   }
 
-  sequenceChanged(_$event: MatSelectChange){
-
-  }
-
-  setSequence(){
-    
+  sequenceChanged(_$event: MatSelectChange) {
+    console.log("Sequence changed works");
   }
 
   requestCustom(starName: string) {
@@ -83,7 +88,15 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
-      console.log(starName, response.star)
+      console.log(response)
+      
+      this.currentSun = response.star
+      this.currentPlanets = response.ArrayPlanets;
     });
   }
+
+  currentSunInfo() {
+    console.log("Current Sun Info works");
+  }
 }
+

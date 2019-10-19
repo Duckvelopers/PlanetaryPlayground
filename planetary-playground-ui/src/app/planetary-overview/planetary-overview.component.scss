@@ -1,24 +1,52 @@
 .space-background {
-    background-image: url('../../assets/planets/Space.png');
-    background-size: contain;
-    background-repeat: repeat;
+  background-image: url("../../assets/planets/Space.png");
+  background-size: contain;
+  background-repeat: repeat;
 }
 
 .sun {
-    max-width: 100%;
-    cursor: pointer;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.planet {
+  @media screen and (max-width: 2700px) {
+    max-width: 150px;
+  }
+
+  @media screen and (max-width: 2100px) {
+    max-width: 120px;
+  }
+
+  @media screen and (max-width: 1600px) {
+    max-width: 100px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    max-width: 80px;
+  }
+
+  @media screen and (max-width: 992px) {
+    max-width: 40px;
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: 25px;
+  }
+
+  cursor: pointer;
 }
 
 .form-style {
-    height: 100%;
-    margin: 10px;
+  height: 100%;
+  margin: 10px;
 }
 
 .planet-detail-style {
-    height: 100%;
-    margin: 10px 10px 10px 0px;
+  height: 100%;
+  margin: 10px 10px 10px 0px;
 }
 
 .radio-group-spacer mat-radio-button {
-    margin-right: 5px;
+  margin-right: 5px;
 }
