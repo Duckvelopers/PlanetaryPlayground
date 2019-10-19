@@ -70,7 +70,7 @@ public class Estrella {
 	public void construirEstrella() {
 		setTemperatura(calcularTemperatura(getTipoEspectral()));
 		
-		if(radio > 0) {
+		if(radio != 0) {
 			setMasa(calcularMasa(getRadio(), getTemperatura()));
 		}
 		else {
@@ -84,19 +84,19 @@ public class Estrella {
 	public double calcularTemperatura(String tipoEspectral) {
 		double auxTemperatura = 0;
 		if (tipoEspectral.equals(StarVariables.TipoEspectral.O)) {
-			auxTemperatura = 40000;
+			auxTemperatura = 30000;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.B)) {
-			auxTemperatura = 28000;
+			auxTemperatura = 15000;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.A)) {
-			auxTemperatura = 14000;
+			auxTemperatura = 10000;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.F)) {
-			auxTemperatura = 9000;
-		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.G)) {
 			auxTemperatura = 7000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.G)) {
+			auxTemperatura = 5200;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.K)) {
-			auxTemperatura = 5500;
+			auxTemperatura = 4200;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.M)) {
-			auxTemperatura = 3800;
+			auxTemperatura = 3100;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.L)) {
 			auxTemperatura = 2000;
 		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.T)) {

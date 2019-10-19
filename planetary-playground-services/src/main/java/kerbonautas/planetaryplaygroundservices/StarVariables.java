@@ -21,7 +21,7 @@ public class StarVariables {
 		public static String L		= "L";
 	}
 	public static double masaPlaneta (double masa, int exponente) {
-		return Math.pow(masa, exponente);
+		return masa * Math.pow(10, exponente);
 	}
 	
 	public static class nombrePlanetasSistemaSolar{
