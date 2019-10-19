@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "planetaryplayground-256411",
+  "private_key_id": "fe56fa8b21c791ab80da91ece0184b7f1e16b815",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDQDtV4WkcmDx2F\nbmS7BKq/L1QTZxgu947JvQAydnSsovVwDRKyC0htRceVeveSjChLLTEO7I0tihdO\nsy1ZMEDzX4cMFCeVx7mp4xXDtSnUx19sTmys0U4wk1fY9Q/E/pxCNSku0Oc572ij\ntJm5ju5ft9sXpKDLMmUW/1n1r3KVtek6aSvDMfES7skkbPVBlrrLV6oeQa6cww98\nnj0DPFU4Dh0VCVzkyIAp6OqaWFJca9dcLlDCkiI+Mf0qsgvdnupa6qQBhR220fCr\ntVuYz5zDKMlDArDlL6lbp3e1JUH8QJgKT7VPyq7EBCfJMpaHWdpUkn5lUF3e3255\ndQaGcvbxAgMBAAECggEAM19WSk9QPg+BZI7rhFoUpvxSsC/GguJReXKXd95T1MSw\nAajYsumiSojuTPR96Mt+r4FLGbpC6bmtI5uOWPVXNECkIdFgLNWR/Ga72wUCfS11\nXFLI9qr/uXLIQCPSbvvHLXne31ZpoZ6BodpYEr8+EJhfGqllooag+1q1pbpaeqhs\nHBGMSxwMrGqg3QS7aJebBOG7R1Pig32Xosu613L6N/UF5BYhJGPMsh5cxc9UdQdV\n8AAE6scZUQdFv8y/GLoS+YDzdyjVT+jdKFQfxaVlRacgAklX0JiR0Zm04xC5P8bE\n1CT70ZKfHdTe7ToHmMBE0H0LFOmyTpGI1e39fhetoQKBgQDsFKB1EFR59GwkHEa8\nBtywPkFHwJsLlgGHF9oQXfLlbwZfb6zdbnfDaq09TpFtb4TmN95fdd9YvmowN1wJ\n5VR6xGxQlRKVXQR7aFZQsGbXCaqDN9oa2mPsDOTwofHl3UV2Gb2AyneWkE328yL6\nzYNNM+cqWKuU5/NZxwUWOUt3DQKBgQDhnOoWluPL+HVV59HNEAc3sZ6v7jpNvA1T\nGwX1uz95rIC8JCyrl4XH0oRO+WJuxo6+6GsTRLmOfQS6I6yXquFtWRzkBGDet2w+\nKK2qqY22pbZAEqrg3zirdb97g5/A+1KDUED0OCW+Tim6eBMjk34PkVeFQBwctjBm\nt3R47AhGdQKBgQDItrTBMnQQB64VeXDuFYt10EgiH+/yBsQfvjio56dGR4GMjF7V\nGEF8hGrrj6v29fRw4xkN4iJUyfdwLPD0fOS5R9yrGkLleGMCJPAVxBR7SP2OeGLX\np8uCemf+6kDGZLzUrwe9wuWvvdp7VbXss+OpNLKZ/y9J93afYqTBg07U1QKBgQCS\nka5CHqS+zhrsRD44SkFmHS5KfSnDdnfxlYy5p3wFP9wiXh3nG/j9Z/YsmDcqYDQ8\nMiHd0rf5qZ54jtSBc7Ifp9TtDSshhWf8udCZHq3CCsXrujTpAht+yHAtfcU7SgrA\n5FJOVmuuxni1e2xzoE41Lub82jlpLbMkB+rS5AQ8QQKBgQCg7gUWYCoZZgIsdSrl\nizVeWN2xOFbfxN7F3QD2pplqZLbsTQQZ8pRSrKkoNsIZQP+eDSVd2JfCUOuuDAoM\nyQJI95k5oO5OrOEM5YwzdrFwG6rT3lbRFAM6pS8vz2MKqZK5Gt1bRfOlUqHYLCuO\nMHxW31elG3lODaVw4H1945NnKA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "planetaryplayground-256411@appspot.gserviceaccount.com",
+  "client_id": "112173169879527481556",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/planetaryplayground-256411%40appspot.gserviceaccount.com"
+}
