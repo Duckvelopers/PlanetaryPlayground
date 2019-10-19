@@ -144,6 +144,17 @@ public class Planeta {
 	public void setDescripcion() {
 		//descripciones.put(key, value);
 		descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico());
+		descripciones.put("DISTANCIA", EsDefs.explicacionDistancia(isSolid));
+		descripciones.put("DISTANCIAAESTRELLA", EsDefs.explicacionDistanciaAEstrella());
+		descripciones.put("DURACIONDIA", EsDefs.explicacionDuracionDia());
+		descripciones.put("GASEOSOONO", EsDefs.explicacionGaseosoONo(isSolid));
+		descripciones.put("MASA", EsDefs.explicacionMasa());
+		descripciones.put("NOMBRE", EsDefs.explicacionNombre());
+		descripciones.put("PERIODOORBITAL", EsDefs.explicacionPeriodoOrbital());
+		descripciones.put("PRESION", EsDefs.explicacionPresion());
+		descripciones.put("TAMANHO", EsDefs.explicacionTamanho(isSolid));
+		descripciones.put("TEMPERATURA", EsDefs.explicacionTemperatura());
+		descripciones.put("ATMOSFERA", EsDefs.explicacionTieneAtmosfera(haveAtmosphere));
 	}
 	
 }
