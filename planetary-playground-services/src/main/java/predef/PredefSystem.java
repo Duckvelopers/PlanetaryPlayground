@@ -7,10 +7,17 @@ import kerbonautas.planetaryplaygroundservices.Planeta;
 import kerbonautas.planetaryplaygroundservices.SistemaEstelar;
 import kerbonautas.planetaryplaygroundservices.StarVariables;
 
-public class SistemaSolar{
-	private SistemaEstelar SE;
+public class PredefSystem{
+	private static SistemaEstelar SE;
 
-	public SistemaSolar() {
+	public static SistemaEstelar getSolarSystem(String solar) {
+		switch(solar) {
+		case "SUN": homeSistem();
+		case "PROXIMA": break;
+		}
+		return SE;
+	}
+	public static SistemaEstelar homeSistem() {
 		Float f=null;
 		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.0d, f);
 		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
@@ -30,6 +37,7 @@ public class SistemaSolar{
 		SE.addPlanet(sat);
 		SE.addPlanet(nep);
 		SE.addPlanet(ura);
+		return SE;
 	}
 	
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 
+import predef.PredefSystem;
+
 @RestController
 public class APIController {
 
@@ -44,6 +46,18 @@ public class APIController {
 	    throws Exception {
 		Gson gson = new Gson();
 		return gson.toJson(null);
+		//TODO Eliminar del arrayList el planeta eliminado
+	}
+	@RequestMapping(value = "/preDef",
+			method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String getPredef(@RequestBody Map<String, Object> payload) 
+	    throws Exception {
+		SistemaEstelar se = PredefSystem.getSolarSystem(payload.get("SOLAR").toString());
+		Gson gson = new Gson();
+		return gson.toJson(se);
 		//TODO Eliminar del arrayList el planeta eliminado
 	}
 }
