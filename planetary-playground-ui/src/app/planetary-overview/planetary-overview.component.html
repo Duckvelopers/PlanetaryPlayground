@@ -1,6 +1,7 @@
 <div fxLayout="column" fxFill>
     <div fxFlex="35" fxLayout="row" class="space-background">
-        <!-- Add planets and things -->
+        <div fxFlex="10" class="sun"></div>
+        <div fxFlex></div>
     </div>
     <div fxFlex fxLayout="row">
         <div fxFlex="30" fxLayout="column" class="form-background">
@@ -28,10 +29,8 @@
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SEQUENCE.TITLE' | translate }}:</mat-label>
                             <mat-select>
-                                <mat-option value="1">{{ 'STAR_FORM.SEQUENCE.SUPERGIANT' | translate }}</mat-option>
-                                <mat-option value="3">{{ 'STAR_FORM.SEQUENCE.GIANT' | translate }}</mat-option>
-                                <mat-option value="5">{{ 'STAR_FORM.SEQUENCE.MAIN_SEQUENCE' | translate }}</mat-option>
-                                <mat-option value="7">{{ 'STAR_FORM.SEQUENCE.WHITE_DWARF' | translate }}</mat-option>
+                                <mat-option *ngFor="let sequence of sequences" [value]="sequence.value">
+                                    {{ sequence.name }}</mat-option>
                             </mat-select>
                         </div>
 

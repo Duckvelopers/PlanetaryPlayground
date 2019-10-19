@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface PredefResponse {
   ArrayPlanets: Planet[];
@@ -31,6 +32,11 @@ export interface StarObject {
   tipoEspectral: string
 }
 
+export interface Secuencia {
+  name: string
+  value: number
+}
+
 @Component({
   selector: 'app-planetary-overview',
   templateUrl: './planetary-overview.component.html',
@@ -39,8 +45,15 @@ export interface StarObject {
 export class PlanetaryOverviewComponent implements OnInit {
   urlBase: string = 'http://planetplayground-env.wuakashtt6.eu-west-2.elasticbeanstalk.com';
 
-  constructor(private _http: HttpClient) {
+  sequence: Secuencia[];
 
+  constructor(private _http: HttpClient, protected translate: TranslateService) {
+    this.sequence = [
+      { name: 'd', value: 1 },
+      { name: 'c', value: 3 },
+      { name: 'b', value: 5 },
+      { name: 'a', value: 7 },
+    ];
   }
 
   ngOnInit() {
@@ -59,7 +72,7 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
-      console.log(starName, response.ArrayPlanets)
+      console.log(starName, response.star)
     });
   }
 }
