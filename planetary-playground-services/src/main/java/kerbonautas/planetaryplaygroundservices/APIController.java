@@ -23,18 +23,17 @@ public class APIController {
 			method = RequestMethod.GET)
 	@ResponseBody
 	public String prueba() throws Exception {
-		return "Pampi es gayer";
+		return "Hey Rick! It's another Cronenberg's world!";
 	}
 	@RequestMapping(value = "/secuencia",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public String setSecuencia(@RequestBody Map<String, Object> payload) 
-	    throws Exception {
-		//TODO devolver los tipos espectrales en un Gson gson = new Gson();
-		//return gson.toJson(Objeto a pasar);
-		return null;
+	public String setSecuencia(@RequestBody Map<String, Object> payload) throws Exception {
+		int secuencia = Integer.parseInt(payload.get("SEQUENCE").toString());
+		Gson gson = new Gson();
+		return gson.toJson(Limitador.tiposEspectralesPosibles(secuencia));
 	}
 	@RequestMapping(value = "/star",
 			method = RequestMethod.POST,

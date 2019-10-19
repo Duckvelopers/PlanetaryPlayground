@@ -37,7 +37,7 @@ public class Limitador {
 		tablaValores.put("7G", new double[]{1,2,3,4});
 	}
 	
-	public ArrayList<String> tiposEspectralesPosibles (int secuencia){
+	public static ArrayList<String> tiposEspectralesPosibles (int secuencia){
 		ArrayList<String> arrayTiposEspectrales = new ArrayList<String>();
 		if (secuencia == 1) {
 			arrayTiposEspectrales.add(StarVariables.TipoEspectral.B);
