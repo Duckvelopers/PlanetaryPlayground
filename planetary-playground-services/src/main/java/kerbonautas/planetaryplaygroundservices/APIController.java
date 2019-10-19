@@ -31,7 +31,7 @@ public class APIController {
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String setSecuencia(@RequestBody Map<String, Object> payload) throws Exception {
-		int secuencia = Integer.parseInt(payload.get("SEQUENCE").toString());
+		int secuencia = Integer.parseInt(payload.get(StarVariables.llamadas.SEQUENCE).toString());
 		Gson gson = new Gson();
 		return gson.toJson(Limitador.tiposEspectralesPosibles(secuencia));
 	}
@@ -43,8 +43,8 @@ public class APIController {
 	public String getPredef(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
 		SistemaEstelar se = null;
-		String pre = payload.get("SOLAR").toString();
-		if (!pre.equalsIgnoreCase("CUSTOM"))
+		String pre = payload.get(StarVariables.llamadas.SOLAR).toString();
+		if (!pre.equalsIgnoreCase(StarVariables.llamadas.CUSTOM))
 			se = PredefSystem.getSolarSystem(pre);
 		else
 			return null;

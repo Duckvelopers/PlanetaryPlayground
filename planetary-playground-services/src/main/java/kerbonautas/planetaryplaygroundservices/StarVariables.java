@@ -1,7 +1,17 @@
 package kerbonautas.planetaryplaygroundservices;
 
 public class StarVariables {
-	
+	public static class llamadas{
+		public static String SEQUENCE		= "SEQUENCE";
+		public static String CLASS			= "CLASS";
+		public static String MASS			= "MASS";
+		public static String RADIUS			= "RADIUS";
+		public static String SOLAR			= "RADIUS";
+		public static String CUSTOM			= "CUSTOM";
+		public static String SUN			= "SUN";
+		public static String PROXIMA		= "PROXIMA";
+		public static String PEGASI			= "PEGASI";
+	}
 	public static class Secuencia{
 		public static int SUPERGIGANTE		= 1;
 		public static int GIGANTE			= 3;
