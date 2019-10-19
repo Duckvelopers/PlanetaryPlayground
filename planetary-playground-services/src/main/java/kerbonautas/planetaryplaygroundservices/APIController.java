@@ -17,14 +17,11 @@ import predef.PredefSystem;
 @RestController
 public class APIController {
 
-	@RequestMapping(value = "/delPlanet",
-			method = RequestMethod.DELETE,
-			consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/prueba",
+			method = RequestMethod.GET)
 	@ResponseBody
-	public void deletePlanet(@RequestBody Map<String, Object> payload) 
-	    throws Exception {
-		Gson gson = new Gson();
-		//TODO Eliminar del arrayList el planeta eliminado
+	public String prueba() throws Exception {
+		return "Pampi es gayer";
 	}
 	@RequestMapping(value = "/secuencia",
 			method = RequestMethod.GET,
@@ -38,7 +35,7 @@ public class APIController {
 		//TODO Eliminar del arrayList el planeta eliminado
 	}
 	@RequestMapping(value = "/star",
-			method = RequestMethod.GET,
+			method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody

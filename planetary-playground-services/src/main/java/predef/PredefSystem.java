@@ -13,12 +13,13 @@ public class PredefSystem{
 	public static SistemaEstelar getSolarSystem(String solar) {
 		switch(solar) {
 		case "SUN": homeSistem();
-		case "PROXIMA": break;
+		case "PROXIMA": proximaSystem();
+		case "PEGASI": pegasiSistem();
 		}
 		return SE;
 	}
+	
 	public static SistemaEstelar homeSistem() {
-		Float f=null;
 		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.0d, 0.0d);
 		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
 		Planeta mer =  new Planeta(2439, 440d, 0, true, StarVariables.masaPlaneta(3.2d, 23), false, "Mercurio", 0);
@@ -40,4 +41,20 @@ public class PredefSystem{
 		return SE;
 	}
 	
+	public static SistemaEstelar proximaSystem() {
+		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.M, 0.1221d, 0.0d);
+		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
+		Planeta pro =  new Planeta(2439, 234d, 0, true, StarVariables.masaPlaneta(7.5d, 24), false, "Proxima b", 0);
+		SE.addPlanet(pro);
+		return SE;
+	}
+	
+	public static SistemaEstelar pegasiSistem() {
+		Float f=null;
+		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.11d, 0.0d);
+		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
+		Planeta dim =  new Planeta(135830, 1284d, 0, false, StarVariables.masaPlaneta(0.89d, 27), true, "Dimidium", 0);
+		SE.addPlanet(dim);
+		return SE;
+	}
 }
