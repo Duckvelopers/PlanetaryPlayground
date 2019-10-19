@@ -10,7 +10,8 @@ export interface PredefResponse {
 }
 
 export interface Planet {
-  dayDuration: number
+  dayDuration: number,
+  descripciones: DescripcionesPlaneta,
   haveAtmosphere: boolean,
   imagen: string,
   isSolid: boolean,
@@ -42,6 +43,21 @@ export interface Secuencia {
   value: number
 }
 
+export interface DescripcionesPlaneta {
+  ATMOSFERA: string,
+  CAMPOMAGNETICO: string,
+  DISTANCIA: string,
+  DISTANCIAAESTRELLA: string,
+  DURACIONDIA: string,
+  GASEOSOONO: string,
+  MASA: string,
+  NOMBRE: string,
+  PERIODOORBITAL: string,
+  PRESION: string,
+  TAMANHO: string,
+  TEMPERATURA: string
+}
+
 @Component({
   selector: 'app-planetary-overview',
   templateUrl: './planetary-overview.component.html',
@@ -54,18 +70,20 @@ export class PlanetaryOverviewComponent implements OnInit {
 
   currentSun: StarObject;
   currentPlanets: Planet[];
+  currentPlanetSelected: Planet;
 
   constructor(private _http: HttpClient, protected translate: TranslateService) {
     translate.onLangChange.subscribe(event => {
       this.sequences = [
         { name: translate.instant('STAR_FORM.SEQUENCE.SUPERGIANT'), value: 1 },
         { name: translate.instant('STAR_FORM.SEQUENCE.GIANT'), value: 3 },
-        { name: translate.instant('STAR_FORM.SEQUENCE.MAIN_SEQUENCE'), value: 5 },
-        { name: translate.instant('STAR_FORM.SEQUENCE.WHITE_DWARF'), value: 7 },
+        { name: translate.instant('STAR_FORM.SEQUENCE.MAIN_SEQUENCE'), value: 5 }
       ]
     });
 
+    this.currentSun = undefined;
     this.currentPlanets = [];
+    this.currentPlanetSelected = undefined;
   }
 
   ngOnInit() {
@@ -89,7 +107,7 @@ export class PlanetaryOverviewComponent implements OnInit {
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
       console.log(response)
-      
+
       this.currentSun = response.star
       this.currentPlanets = response.ArrayPlanets;
     });
@@ -97,6 +115,10 @@ export class PlanetaryOverviewComponent implements OnInit {
 
   currentSunInfo() {
     console.log("Current Sun Info works");
+  }
+
+  currentPlanetInfo(index) {
+    this.currentPlanetSelected = this.currentPlanets[index];
   }
 }
 

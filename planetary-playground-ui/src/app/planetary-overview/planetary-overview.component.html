@@ -3,9 +3,9 @@
         <div fxFlex="10" fxLayoutAlign="center center">
             <img src="../../assets/planets/Sun.png" class="sun" (click)="currentSunInfo()" />
         </div>
-        <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets">
+        <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets; index as i">
             <div fxFlex fxLayoutAlign="space-evenly center">
-                <img src="../../assets/planets/{{planet.imagen}}.png" class="planet" (click)="currentSunInfo()" />
+                <img src="../../assets/planets/{{planet.imagen}}.png" class="planet" (click)="currentPlanetInfo(i)" />
             </div>
         </div>
     </div>
@@ -65,7 +65,14 @@
                 <mat-card-subtitle>
                     <mat-divider></mat-divider>
                 </mat-card-subtitle>
-                <mat-card-content>Dummy</mat-card-content>
+                <mat-card-content>
+                    <mat-list role="list" *ngIf="currentPlanetSelected">
+                        <mat-list-item *ngFor="let description of currentPlanetSelected.descripciones | keyvalue"
+                            role="listitem" class="less-font">
+                            <mat-icon>info</mat-icon>{{description.value}}
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
             </mat-card>
         </div>
     </div>
