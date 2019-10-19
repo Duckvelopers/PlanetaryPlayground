@@ -71,12 +71,12 @@ public class APIController {
 	@ResponseBody
 	public String custGen(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
-		String secuencia = payload.get(StarVariables.llamadas.SEQUENCE).toString();
+		int secuencia = Integer.parseInt(payload.get(StarVariables.llamadas.SEQUENCE).toString());
 		String espectral = payload.get(StarVariables.llamadas.CLASS).toString();
-		String masa = payload.get(StarVariables.llamadas.MASS).toString();
-		String radio = payload.get(StarVariables.llamadas.RADIUS).toString();
+		double masa = Double.parseDouble(payload.get(StarVariables.llamadas.MASS).toString());
+		double radio = Double.parseDouble(payload.get(StarVariables.llamadas.RADIUS).toString());
 		SistemaEstelar se = null;
-		//se = StuffGenerator.generarSistemaRandom(secuencia,espectral,masa,radio);
+		se = StuffGenerator.generarSistemaRandom(secuencia,espectral,masa,radio);
 		Gson gson = new Gson();
 		return gson.toJson(se);
 	}

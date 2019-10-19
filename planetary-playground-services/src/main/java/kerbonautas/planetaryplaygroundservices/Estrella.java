@@ -24,6 +24,8 @@ public class Estrella {
 		this.tipoEspectral = tipoEspectral;
 		this.masa = masa;
 		this.radio = radio;
+		//TODO borrar esto
+		this.name = "Estrella";
 		construirEstrella();
 		setDescription();
 	}

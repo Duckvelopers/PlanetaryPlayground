@@ -1,8 +1,23 @@
 package kerbonautas.planetaryplaygroundservices;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class StuffGenerator {
+	private static String[] letter = new String[] {" B"," C"," D"," E"," F"," G"," H"};
+	public static SistemaEstelar generarSistemaRandom(int secuencia, String espectral, double masa, double radio) {
+		Estrella star = new Estrella(secuencia, espectral, masa, radio);
+		ArrayList<Planeta> arrPlanets = new ArrayList<Planeta>();
+		int numPlanetas = ((int)(Math.random()*6))+1;
+		System.out.println("Numero de planetas generados: "+numPlanetas);
+		String starName = star.getName().split(" ")[0];
+		System.out.println("Nombre del primer planeta: "+starName+" B");
+		for(int i=0;i<numPlanetas;i++) {
+			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, radio, masa, starName+letter[i]));
+		}
+		SistemaEstelar se = new SistemaEstelar(star, arrPlanets);
+		return se;
+	}
 	
 	public static Estrella generarEstrella(Map<String, Object> map) {
 		int secuencia = Integer.parseInt(map.get(StarVariables.llamadas.SEQUENCE).toString());
@@ -13,7 +28,7 @@ public class StuffGenerator {
 		return star;
 	}
 	
-	public static Planeta generarPlanetaRandom(int secuencia, String tipoEspectral, double radioEstrella, double masaEstrella) {
+	public static Planeta generarPlanetaRandom(int secuencia, String tipoEspectral, double radioEstrella, double masaEstrella, String nombre) {
 		boolean auxEsTerrestre = esTerrestre(secuencia, tipoEspectral);
 		double auxDistanciaEstrella = distanciaEstrella(auxEsTerrestre, radioEstrella, masaEstrella);
 		double auxPeriodoOrbital = periodoOrbital(masaEstrella, auxDistanciaEstrella);
