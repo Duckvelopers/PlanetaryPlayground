@@ -1,11 +1,13 @@
 .space-background {
+    background-image: url('../../assets/planets/Space.png');
+    background-size: contain;
+    background-repeat: repeat;
+}
+
+/* .form-background {
     background-color: #21054E;
 }
 
-.form-background {
-    background-color: #7C7484;
-}
-
 .planet-detail-background {
-    background-color: #B1A8B9;
-}
+    background-color: #502E7B;
+} */
