@@ -90,6 +90,8 @@ export class PlanetaryOverviewComponent implements OnInit {
   }
 
   starChange(_$event: MatRadioChange) {
+    this.currentPlanetSelected = undefined;
+
     if (_$event.value !== "CUSTOM") {
       this.requestCustom(_$event.value);
     }
