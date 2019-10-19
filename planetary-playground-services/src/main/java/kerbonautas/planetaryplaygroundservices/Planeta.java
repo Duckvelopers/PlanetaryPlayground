@@ -17,7 +17,7 @@ public class Planeta {
 	private double dayDuration;
 	private String imagen;
 	private HashMap<String, String> descripciones = new HashMap <String, String>();
-	private boolean eng = true;
+
 	public Planeta(int radius, double surfaceTemperature, boolean isSolid, double mass, boolean haveAtmosphere,
 			String name, double pressure, double magneticField, double starDistance, double orbitalPeriod,
 			double dayDuration) {
@@ -146,7 +146,7 @@ public class Planeta {
 	
 	public void setDescripcion() {
 
-		if (eng) {
+		if (StarVariables.eng) {
 			descripciones.put("CAMPOMAGNETICO", IngDefs.explicacionCampoMagnetico());
 			descripciones.put("DISTANCIA", IngDefs.explicacionDistancia(isSolid));
 			descripciones.put("DISTANCIAAESTRELLA", IngDefs.explicacionDistanciaAEstrella());
