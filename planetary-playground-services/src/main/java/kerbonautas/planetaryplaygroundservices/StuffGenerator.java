@@ -18,7 +18,14 @@ public class StuffGenerator {
 		double auxDistanciaEstrella = distanciaEstrella(auxEsTerrestre, radioEstrella, masaEstrella);
 		double auxPeriodoOrbital = periodoOrbital(masaEstrella, auxDistanciaEstrella);
 		int auxRadio = radio(auxEsTerrestre);
-		return null;
+		double auxDuracionDia = duracionDia();
+		double auxMasa = masa(auxEsTerrestre);
+		double auxCampoMagnetico = campoMagnetico(auxEsTerrestre, auxMasa);
+		boolean auxTieneAtmosfera = tieneAtmosfera(auxCampoMagnetico);
+		double auxPresionAtmosferica = presionAtmosferica(auxTieneAtmosfera);
+		double auxTemperaturaSuperficial = temperaturaSuperficial(auxDistanciaEstrella);
+		Planeta planet = new Planeta(auxRadio, auxTemperaturaSuperficial, auxEsTerrestre, auxMasa, auxTieneAtmosfera, "Nombre 1", auxPresionAtmosferica, auxCampoMagnetico, auxDistanciaEstrella, auxPeriodoOrbital, auxDuracionDia);
+		return planet;
 	}
 	
 	public static boolean esTerrestre (int auxSecuencia, String auxTipoEspectral) {
@@ -38,15 +45,15 @@ public class StuffGenerator {
 		double distanciaMaxima = Math.pow(auxMasaEstrella, 2/3) * 50;
 		double distanciaFactible = distanciaMaxima - distanciaMinima;
 		if(auxEsTerrestre) {
-			auxDistanciaEstrella = (Math.random() + 0.00000001) * distanciaFactible + distanciaMinima;
+			auxDistanciaEstrella = Math.random() * distanciaFactible + distanciaMinima;
 		} else {
-			auxDistanciaEstrella = Math.random();
-			if (auxDistanciaEstrella < 0.1) auxDistanciaEstrella = (auxDistanciaEstrella + 0.00000001) * distanciaFactible + distanciaMinima;
+			double variableRandom = Math.random();
+			if (variableRandom < 0.1) auxDistanciaEstrella = auxDistanciaEstrella * distanciaFactible + distanciaMinima;
 			else {
-				if (auxDistanciaEstrella > 0.1 && auxDistanciaEstrella < 0.3) {
-					auxDistanciaEstrella = (auxDistanciaEstrella + 0.00000001) * distanciaFactible + distanciaMinima + (0.3 * distanciaFactible);
+				if (variableRandom > 0.1 && variableRandom < 0.3) {
+					auxDistanciaEstrella = auxDistanciaEstrella* distanciaFactible + distanciaMinima + (0.3 * distanciaFactible);
 				} else {
-					auxDistanciaEstrella = (auxDistanciaEstrella + 0.00000001) * distanciaFactible + distanciaMinima;
+					auxDistanciaEstrella = auxDistanciaEstrella* distanciaFactible + distanciaMinima;
 				}
 			}
 		}
@@ -68,9 +75,9 @@ public class StuffGenerator {
 		int radioJupiter = 69911;
 		double radioMinimo = 1200;
 		if (auxEsTerrestre) {
-			auxRadio = (int) ((Math.random() + 0.00000001) * (radioJupiter - radioMinimo) + radioMinimo);
+			auxRadio = (int) (Math.random() * (radioJupiter - radioMinimo) + radioMinimo);
 		} else {
-			auxRadio = (int) (((Math.random() * 14) + 1.00000001) * (radioJupiter - radioMinimo) + radioMinimo);
+			auxRadio = (int) (((Math.random() * 14) + 1) * (radioJupiter - radioMinimo) + radioMinimo);
 		}
 		return auxRadio;
 	}
@@ -86,13 +93,28 @@ public class StuffGenerator {
 		return auxMasa;
 	}
 	
-	public static double campoMagnetico(boolean ausExTerrestre) {
+	public static double campoMagnetico(boolean auxEsTerrestre, double auxMasa) {
 		double auxCampoMagnetico = 0;
+		double campoMagneticoMinimo = 15;
+		double campoMagneticoMaximo = 350;
+		if(auxEsTerrestre) {
+			double variableRandom = Math.random();
+			if(variableRandom > 0.2 && auxMasa > (5* Math.pow(10, 24))) {
+				auxCampoMagnetico = Math.random() * (campoMagneticoMaximo - campoMagneticoMinimo) + campoMagneticoMinimo;
+			} else if(variableRandom > 0.6 && auxMasa > (5* Math.pow(10, 23))) {
+				auxCampoMagnetico = Math.random() * (campoMagneticoMaximo - campoMagneticoMinimo) + campoMagneticoMinimo;
+			}
+		} else {
+			auxCampoMagnetico = Math.random() * (campoMagneticoMaximo - campoMagneticoMinimo) + campoMagneticoMinimo;
+		}
 		return auxCampoMagnetico;
 	}
 	
 	public static boolean tieneAtmosfera(double auxCampoMagnetico) {
 		boolean auxTieneAtmosfera = false;
+		double variableRandom = Math.random();
+		if(auxCampoMagnetico > 0 && variableRandom > 0.1) auxTieneAtmosfera = true;
+		else if (auxCampoMagnetico == 0 && variableRandom <= 0.1) auxTieneAtmosfera = true;
 		return auxTieneAtmosfera;
 	}
 	
