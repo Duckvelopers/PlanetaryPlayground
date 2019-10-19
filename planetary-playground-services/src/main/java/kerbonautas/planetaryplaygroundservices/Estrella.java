@@ -1,5 +1,7 @@
 package kerbonautas.planetaryplaygroundservices;
 
+import java.math.MathContext;
+
 public class Estrella {
 
 	public int secuencia;
@@ -9,7 +11,9 @@ public class Estrella {
 	public double magnitudAbsoluta;
 	public double radio;
 	public double masa;
-	public double constanteSigma = 5.67 * Math.pow(10, -8);
+	private double constanteSigma = 5.67 * Math.pow(10, -8);
+	private double constanteLuminosidadSol = 3.86 * Math.pow(10, 26);
+	private double constanteRadioSol = 6.957 * Math.pow(10, 8);
 	
 	public Estrella(int secuencia, String tipoEspectral, double masa, double radio) {
 		super();
@@ -64,39 +68,67 @@ public class Estrella {
 	}
 
 	public void construirEstrella() {
+		setTemperatura(calcularTemperatura(getTipoEspectral()));
+		
 		if(radio > 0) {
-			setMasa(calcularMasa());
+			setMasa(calcularMasa(getRadio(), getTemperatura()));
 		}
 		else {
-			setRadio(calcularRadio());
+			setRadio(calcularRadio(getMasa(), getTemperatura()));
 		}
-		setTemperatura(calcularTemperatura());
-		setLuminosidad(calcularLuminosidad());
-		setMagnitudAbsoluta(calcularMagnitudAbsoluta());
+		
+		setLuminosidad(calcularLuminosidad(getMasa()));
+		setMagnitudAbsoluta(calcularMagnitudAbsoluta(getLuminosidad()));
 	}
 	
-	public double calcularTemperatura() {
-		
-		return 0;
+	public double calcularTemperatura(String tipoEspectral) {
+		double auxTemperatura = 0;
+		if (tipoEspectral.equals(StarVariables.TipoEspectral.O)) {
+			auxTemperatura = 40000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.B)) {
+			auxTemperatura = 28000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.A)) {
+			auxTemperatura = 14000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.F)) {
+			auxTemperatura = 9000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.G)) {
+			auxTemperatura = 7000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.K)) {
+			auxTemperatura = 5500;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.M)) {
+			auxTemperatura = 3800;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.L)) {
+			auxTemperatura = 2000;
+		} else if (tipoEspectral.equals(StarVariables.TipoEspectral.T)) {
+			auxTemperatura = 1000;
+		}
+		return auxTemperatura;
 	}
 	
-	public double calcularMasa() {
-		
-		return 0;
+	public double calcularMasa(double auxRadio, double auxTemperatura) {
+		double auxMasa = 0;
+		auxMasa = 4 * Math.PI * constanteSigma * Math.pow(constanteRadioSol, 2) * Math.pow(auxRadio, 2) * Math.pow(auxTemperatura, 4);
+		auxMasa = auxMasa / constanteLuminosidadSol;
+		auxMasa = Math.pow(auxMasa, 2/7);
+		return auxMasa;
 	}
 	
-	public double calcularRadio() {
-		
-		return 0;
+	public double calcularRadio(double auxMasa, double auxTemperatura) {
+		double auxRadio = 0;
+		auxRadio = constanteLuminosidadSol * Math.pow(auxMasa, 7/2);
+		auxRadio = auxRadio / (4 * Math.PI * constanteSigma * Math.pow(constanteRadioSol, 2) * Math.pow(auxTemperatura, 4));
+		return auxRadio;
 	}
 	
-	public double calcularLuminosidad() {
-		
-		return 0;
+	public double calcularLuminosidad(double auxMasa) {
+		double auxLuminosidad = 0;
+		auxLuminosidad = constanteLuminosidadSol * Math.pow(auxMasa, 7/2);
+		return auxLuminosidad;
 	}
 	
-	public double calcularMagnitudAbsoluta() {
-		
-		return 0;
+	public double calcularMagnitudAbsoluta(double auxLuminosidad) {
+		double auxMagnitudAbsoluta = 0;
+		auxMagnitudAbsoluta = 4.75 - (2.5 * Math.log10(auxLuminosidad/constanteLuminosidadSol));
+		return auxMagnitudAbsoluta;
 	}
 }

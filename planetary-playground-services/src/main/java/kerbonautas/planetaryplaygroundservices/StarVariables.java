@@ -16,5 +16,9 @@ public class StarVariables {
 		public static String K		= "K";
 		public static String M		= "M";
 		public static String T		= "T";
+		public static String L		= "L";
+	}
+	public static double masaPlaneta (double masa, int exponente) {
+		return Math.pow(masa, exponente);
 	}
 }
