@@ -5,7 +5,7 @@ public class IngDefs {
 	// Precisa que se le envia el booleano de si el planeta es gaseoso o no
 	public static String explicacionDistancia(Boolean i) {
 		StringBuilder str = new StringBuilder();
-		if (i) {
+		if (!i) {
 			str.append("Gaseous planets are usually in regions far from their star. \n \n");
 			str.append("A gaseous planet could be near the star because: \n");
 			str.append("-a giant star that has evolved from the main sequence and has approached during its evolution the planet gas that was far away \n");
@@ -26,7 +26,7 @@ public class IngDefs {
 	public static String explicacionGaseosoONo(Boolean i) {
 		StringBuilder str = new StringBuilder();
 		
-		if (i) {
+		if (!i) {
 			str.append("The gaseous planets are formed by a large number of substances that under normal conditions are gaseous and in addition, we call them that because their outer appearance is that of a sea of clouds.\n");
 			str.append("It is not known with certainty, but it is suspected that they have a solid core and between it and the clouds, liquid oceans.");
 		} else {
@@ -43,7 +43,7 @@ public class IngDefs {
 		
 		str.append("The reference size that is usually used, is in reference to Jupiter, talking about super Jupiters when they are many times larger.\n");
 		
-		if (i) {
+		if (!i) {
 			str.append("Gaseous planets tend to have a large size (several times the size of planet Earth) in part because of being gassed, their atmosphere extends over a much larger region. \n");
 		} else {
 			str.append("The terrestrial planets are very varied, being able to have the size of the planet Earth, several times less (Mercury) or tens of times greater (Supertierras). \n");

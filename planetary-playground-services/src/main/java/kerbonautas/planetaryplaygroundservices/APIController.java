@@ -26,7 +26,7 @@ public class APIController {
 		return "Hey Rick! It's another Cronenberg's world!";
 	}
 	@RequestMapping(value = "/secuencia",
-			method = RequestMethod.GET,
+			method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
@@ -36,7 +36,7 @@ public class APIController {
 		return gson.toJson(Limitador.tiposEspectralesPosibles(secuencia));
 	}
 	@RequestMapping(value = "/espectral",
-			method = RequestMethod.GET,
+			method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
@@ -61,6 +61,22 @@ public class APIController {
 			se = PredefSystem.getSolarSystem(pre);
 		else
 			return null;
+		Gson gson = new Gson();
+		return gson.toJson(se);
+	}
+	@RequestMapping(value = "/custGen",
+			method = RequestMethod.POST,
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String custGen(@RequestBody Map<String, Object> payload) 
+	    throws Exception {
+		String secuencia = payload.get(StarVariables.llamadas.SEQUENCE).toString();
+		String espectral = payload.get(StarVariables.llamadas.CLASS).toString();
+		String masa = payload.get(StarVariables.llamadas.MASS).toString();
+		String radio = payload.get(StarVariables.llamadas.RADIUS).toString();
+		SistemaEstelar se = null;
+		//se = StuffGenerator.generarSistemaRandom(secuencia,espectral,masa,radio);
 		Gson gson = new Gson();
 		return gson.toJson(se);
 	}
