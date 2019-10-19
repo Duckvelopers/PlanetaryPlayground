@@ -52,14 +52,14 @@ export class PlanetaryOverviewComponent implements OnInit {
     }
   }
 
-  requestCustom(starName: string) {    
-    const requestedStar = { "SOLAR": starName };
+  requestCustom(starName: string) {
+    const requestedStar = { "SOLAR": `${starName}` };
 
     this._http.post(this.urlBase + '/star', requestedStar, {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
-      //Represent things
+      console.log(starName, response.ArrayPlanets)
     });
   }
 }
