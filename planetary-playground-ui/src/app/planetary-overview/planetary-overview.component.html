@@ -75,7 +75,7 @@
                         <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
                             <mat-list dense>
                                 <ng-container *ngFor="let description of currentPlanetSelected | keyvalue">
-                                    <mat-list-item *ngIf="description.key!=='descripciones'" class="less-font">
+                                    <mat-list-item *ngIf="description.key !== 'descripciones' && description.value !== 0" class="less-font">
                                         <mat-icon>info</mat-icon>{{description.value}}
                                     </mat-list-item>
                                 </ng-container>
