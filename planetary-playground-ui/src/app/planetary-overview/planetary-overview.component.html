@@ -1,6 +1,8 @@
 <div fxLayout="column" fxFill>
     <div fxFlex="35" fxLayout="row" class="space-background">
-        <div fxFlex="10" class="sun"></div>
+        <div fxFlex="10" fxLayoutAlign="center center">
+            <img src="../../assets/planets/Sun.png" class="sun"/>
+        </div>
         <div fxFlex></div>
     </div>
     <div fxFlex fxLayout="row">
@@ -28,7 +30,7 @@
 
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SEQUENCE.TITLE' | translate }}:</mat-label>
-                            <mat-select>
+                            <mat-select (selectionChange)="sequenceChanged($event)">
                                 <mat-option *ngFor="let sequence of sequences" [value]="sequence.value">
                                     {{ sequence.name }}</mat-option>
                             </mat-select>
