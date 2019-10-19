@@ -46,6 +46,7 @@ public class APIController {
 		Gson gson = new Gson();
 		Limitador limit = new Limitador();
 		String val = secuencia+espectral;
+		System.out.println("val: "+val);
 		return gson.toJson(limit.getValores(val));
 	}
 	@RequestMapping(value = "/star",

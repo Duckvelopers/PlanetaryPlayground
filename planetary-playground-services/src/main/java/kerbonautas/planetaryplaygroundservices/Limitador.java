@@ -13,6 +13,7 @@ public class Limitador {
 	}
 	
 	public void insertarValores() {
+		tablaValores = new HashMap<String, double[]>();
 		tablaValores.put("1B", new double[]{10,100,11.1,41.4});
 		tablaValores.put("1A", new double[]{10,200,7,38.7});
 		tablaValores.put("1F", new double[]{20,300,6.9,38.7});
