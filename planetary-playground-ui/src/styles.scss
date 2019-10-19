@@ -1,4 +1,10 @@
 @import '@angular/material/prebuilt-themes/purple-green.css';
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Varela Round',
+);
+@include angular-material-typography($custom-typography);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
