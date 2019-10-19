@@ -99,15 +99,10 @@ public class EsDefs {
 		return str.toString();
 	}
 	
-	// Precia que se el envie el booleano de si tiene o no campo magnetico
-	public static String explicacionCampoMagnetico(Boolean i) {
+	public static String explicacionCampoMagnetico() {
 		StringBuilder str = new StringBuilder();
 		
-		if(i) {
-			str.append("");
-		} else {
-			str.append("");
-		}
+		str.append("");
 		
 		return str.toString();
 	}

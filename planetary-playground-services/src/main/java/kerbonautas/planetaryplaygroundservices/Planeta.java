@@ -33,6 +33,9 @@ public class Planeta {
 		this.starDistance = starDistance;
 		this.orbitalPeriod = orbitalPeriod;
 		this.dayDuration = dayDuration;
+		setImagen();
+		
+		setDescripcion();
 	}
 
 	public int getRadius() {
@@ -127,8 +130,20 @@ public class Planeta {
 		return imagen;
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setImagen() {
+		StringBuilder str = new StringBuilder();
+		if (isSolid) {
+			str.append("T");
+		} else {
+			str.append("G");
+		}
+		int i = (int) (Math.random() * 5 + 1);
+		str.append(i);
+	}
+	
+	public void setDescripcion() {
+		//descripciones.put(key, value);
+		descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico());
 	}
 	
 }
