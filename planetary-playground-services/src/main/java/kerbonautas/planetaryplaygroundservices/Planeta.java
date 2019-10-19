@@ -1,5 +1,7 @@
 package kerbonautas.planetaryplaygroundservices;
 
+import java.util.HashMap;
+
 public class Planeta {
 
 	private int radius;
@@ -14,8 +16,7 @@ public class Planeta {
 	private double orbitalPeriod;
 	private double dayDuration;
 	private String imagen;
-	//TODO hola
-	private String descripcion = "Descripcion de prueba";
+	private HashMap<String, String> descripciones = new HashMap <String, String>();
 	
 	public Planeta(int radius, double surfaceTemperature, boolean isSolid, double mass, boolean haveAtmosphere,
 			String name, double pressure, double magneticField, double starDistance, double orbitalPeriod,
@@ -129,15 +130,5 @@ public class Planeta {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	
-	
 	
 }
