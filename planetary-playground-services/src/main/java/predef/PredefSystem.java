@@ -12,9 +12,9 @@ public class PredefSystem{
 
 	public static SistemaEstelar getSolarSystem(String solar) {
 		switch(solar) {
-		case "SUN": homeSistem();
-		case "PROXIMA": proximaSystem();
-		case "PEGASI": pegasiSistem();
+		case "SUN": homeSistem();break;
+		case "PROXIMA": proximaSystem();break;
+		case "PEGASI": pegasiSistem();break;
 		}
 		return SE;
 	}
