@@ -19,7 +19,7 @@ public class PredefSystem{
 	}
 	public static SistemaEstelar homeSistem() {
 		Float f=null;
-		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.0d, f);
+		Estrella star = new Estrella(StarVariables.Secuencia.SECUENCIAP, StarVariables.TipoEspectral.G, 1.0d, 0.0d);
 		SE = new SistemaEstelar(star,new ArrayList<Planeta>());
 		Planeta mer =  new Planeta(2439, 440d, 0, true, StarVariables.masaPlaneta(3.2d, 23), false, "Mercurio", 0);
 		Planeta ven =  new Planeta(6051, 722.15d, 0, true, StarVariables.masaPlaneta(4.87d, 24), true, "Venus", 0);
