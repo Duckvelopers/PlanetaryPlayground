@@ -133,12 +133,15 @@ public class Planeta {
 	public void setImagen() {
 		StringBuilder str = new StringBuilder();
 		if (isSolid) {
-			str.append("T");
+			str.append("t");
 		} else {
-			str.append("G");
+			str.append("g");
 		}
 		int i = (int) (Math.random() * 5 + 1);
 		str.append(i);
+	}
+	public void setMachacaImagen(String i) {
+		this.imagen=i;
 	}
 	
 	public void setDescripcion() {
