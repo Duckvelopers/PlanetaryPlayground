@@ -39,7 +39,7 @@ public class StuffGenerator {
 		boolean auxTieneAtmosfera = tieneAtmosfera(auxCampoMagnetico);
 		double auxPresionAtmosferica = presionAtmosferica(auxTieneAtmosfera);
 		double auxTemperaturaSuperficial = temperaturaSuperficial(auxDistanciaEstrella);
-		Planeta planet = new Planeta(auxRadio, auxTemperaturaSuperficial, auxEsTerrestre, auxMasa, auxTieneAtmosfera, "Nombre 1", auxPresionAtmosferica, auxCampoMagnetico, auxDistanciaEstrella, auxPeriodoOrbital, auxDuracionDia);
+		Planeta planet = new Planeta(auxRadio, auxTemperaturaSuperficial, auxEsTerrestre, auxMasa, auxTieneAtmosfera, nombre, auxPresionAtmosferica, auxCampoMagnetico, auxDistanciaEstrella, auxPeriodoOrbital, auxDuracionDia);
 		return planet;
 	}
 	

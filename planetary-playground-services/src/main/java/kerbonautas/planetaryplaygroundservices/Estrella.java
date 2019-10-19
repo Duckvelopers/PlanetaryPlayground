@@ -25,7 +25,7 @@ public class Estrella {
 		this.masa = masa;
 		this.radio = radio;
 		//TODO borrar esto
-		this.name = "Estrella";
+		this.name = "Estrella A";
 		construirEstrella();
 		setDescription();
 	}
