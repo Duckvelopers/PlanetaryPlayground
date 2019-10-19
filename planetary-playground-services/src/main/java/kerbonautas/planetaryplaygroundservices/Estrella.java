@@ -1,6 +1,5 @@
 package kerbonautas.planetaryplaygroundservices;
 
-import java.math.MathContext;
 import java.util.HashMap;
 
 public class Estrella {
@@ -15,6 +14,7 @@ public class Estrella {
 	private double constanteSigma = 5.67 * Math.pow(10, -8);
 	private double constanteLuminosidadSol = 3.86 * Math.pow(10, 26);
 	private double constanteRadioSol = 6.957 * Math.pow(10, 8);
+	private String name;
 
 	private HashMap<String, String> descripciones = new HashMap<String, String>();
 	
@@ -69,6 +69,14 @@ public class Estrella {
 	}
 	public void setMasa(double masa) {
 		this.masa = masa;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void construirEstrella() {
