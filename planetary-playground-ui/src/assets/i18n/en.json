@@ -1,7 +1,8 @@
 {
     "CARD_HEADLINES": {
         "STAR_CONFIGURE": "Star configurator",
-        "PLANET_DETAILS": "Planet details"
+        "DETAILS": "Details",
+        "PLANET_DETAILS": "Planet {{name}} details"
     },
     "STAR_FORM": {
         "SELECTOR_RADIO": {
@@ -21,5 +22,12 @@
         "STELLAR_CLASSIFICATION": {
             "TITLE": "Stellar Classification"
         }
+    },
+    "DETAILS": {
+        "INFO": {
+            "TITLE": "Information"
+        },
+        "DESCRIPTION": "Description",
+        "SELECT_SOMETHING": "Select a star and a planet first please."
     }
 }

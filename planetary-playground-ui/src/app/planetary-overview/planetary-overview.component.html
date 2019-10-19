@@ -61,17 +61,33 @@
         </div>
         <div fxFlex fxLayout="column" class="planet-detail-background">
             <mat-card class="planet-detail-style">
-                <mat-card-title>{{ 'CARD_HEADLINES.PLANET_DETAILS' | translate }}</mat-card-title>
+                <mat-card-title>
+                    <span *ngIf="!currentPlanetSelected">{{ 'CARD_HEADLINES.DETAILS' | translate }}</span>
+                    <span *ngIf="currentPlanetSelected" [translate]="'CARD_HEADLINES.PLANET_DETAILS'"
+                        [translateParams]="{name: currentPlanetSelected.name}">
+                    </span>
+                </mat-card-title>
                 <mat-card-subtitle>
                     <mat-divider></mat-divider>
                 </mat-card-subtitle>
                 <mat-card-content>
-                    <mat-list dense role="list" *ngIf="currentPlanetSelected">
-                        <mat-list-item *ngFor="let description of currentPlanetSelected.descripciones | keyvalue"
-                            role="listitem" class="less-font">
-                            <mat-icon>info</mat-icon>{{description.value}}
-                        </mat-list-item>
-                    </mat-list>
+                    <mat-tab-group *ngIf="currentPlanetSelected; else selectPlanet">
+                        <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
+
+                        </mat-tab>
+                        <mat-tab label="{{ 'DETAILS.DESCRIPTION' | translate }}">
+                            <mat-list dense>
+                                <mat-list-item
+                                    *ngFor="let description of currentPlanetSelected.descripciones | keyvalue"
+                                    class="less-font">
+                                    <mat-icon>info</mat-icon>{{description.value}}
+                                </mat-list-item>
+                            </mat-list>
+                        </mat-tab>
+                    </mat-tab-group>
+                    <ng-template #selectPlanet>
+                        {{ 'DETAILS.SELECT_SOMETHING' | translate }}
+                    </ng-template>
                 </mat-card-content>
             </mat-card>
         </div>

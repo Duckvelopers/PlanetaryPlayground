@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatSelectModule,
     MatListModule,
     MatIconModule,
-    ScrollingModule
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
