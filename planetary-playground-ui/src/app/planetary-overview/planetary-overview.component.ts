@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
+import { MatSelectChange } from '@angular/material/select';
 
 export interface PredefResponse {
   ArrayPlanets: Planet[];
@@ -45,15 +46,17 @@ export interface Secuencia {
 export class PlanetaryOverviewComponent implements OnInit {
   urlBase: string = 'http://planetplayground-env.wuakashtt6.eu-west-2.elasticbeanstalk.com';
 
-  sequence: Secuencia[];
+  sequences: Secuencia[];
 
   constructor(private _http: HttpClient, protected translate: TranslateService) {
-    this.sequence = [
-      { name: 'd', value: 1 },
-      { name: 'c', value: 3 },
-      { name: 'b', value: 5 },
-      { name: 'a', value: 7 },
-    ];
+    translate.onLangChange.subscribe(event => {
+      this.sequences = [
+        { name: translate.instant('STAR_FORM.SEQUENCE.SUPERGIANT'), value: 1 },
+        { name: translate.instant('STAR_FORM.SEQUENCE.GIANT'), value: 3 },
+        { name: translate.instant('STAR_FORM.SEQUENCE.MAIN_SEQUENCE'), value: 5 },
+        { name: translate.instant('STAR_FORM.SEQUENCE.WHITE_DWARF'), value: 7 },
+      ]
+    });
   }
 
   ngOnInit() {
@@ -63,6 +66,14 @@ export class PlanetaryOverviewComponent implements OnInit {
     if (_$event.value !== "CUSTOM") {
       this.requestCustom(_$event.value);
     }
+  }
+
+  sequenceChanged(_$event: MatSelectChange){
+
+  }
+
+  setSequence(){
+    
   }
 
   requestCustom(starName: string) {

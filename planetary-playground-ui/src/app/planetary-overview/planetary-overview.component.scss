@@ -5,10 +5,8 @@
 }
 
 .sun {
-    background-image: url('../../assets/planets/Sun.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    max-width: 100%;
+    cursor: pointer;
 }
 
 .form-style {
