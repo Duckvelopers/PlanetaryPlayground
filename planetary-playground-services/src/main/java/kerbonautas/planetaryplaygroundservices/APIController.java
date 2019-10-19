@@ -1,5 +1,6 @@
 package kerbonautas.planetaryplaygroundservices;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.http.MediaType;
@@ -32,6 +33,20 @@ public class APIController {
 	public void deletePlanet(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
 		Gson gson = new Gson();
+		//TODO Eliminar del arrayList el planeta eliminado
+	}
+	@RequestMapping(value = "/secuencia",
+			method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String setSecuencia(@RequestBody Map<String, Object> payload) 
+	    throws Exception {
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("O");
+		arr.add("G");
+		Gson gson = new Gson();
+		return gson.toJson(arr);
 		//TODO Eliminar del arrayList el planeta eliminado
 	}
 }
