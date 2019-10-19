@@ -35,13 +35,15 @@ public class StarVariables {
 	}
 	
 	public static class nombrePlanetasSistemaSolar{
-		public static String VENUS = "Venus";
-		public static String MERCURIO = "Mercurio";
-		public static String TIERRA = "Tierra";
-		public static String MARTE = "Marte";
-		public static String JUPITER = "Jupiter";
-		public static String SATURNO = "Saturno";
-		public static String URANO = "Urano";
-		public static String NEPTUNO = "Neptuno";
+		public static String MERCURIO	= "Mercury";
+		public static String VENUS		= "Venus";
+		public static String TIERRA		= "Earth";
+		public static String MARTE		= "Mars";
+		public static String JUPITER	= "Jupiter";
+		public static String SATURNO	= "Saturn";
+		public static String URANO		= "Uranus";
+		public static String NEPTUNO	= "Neptune";
+		public static String PROXIMAB	= "Proxima B";
+		public static String DIMIDIUM	= "Dimidium";
 	}
 }
