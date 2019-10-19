@@ -2,7 +2,7 @@ package kerbonautas.planetaryplaygroundservices;
 
 public class Planeta {
 
-	private int radious;
+	private int radius;
 	private double temperature;
 	private int numberOfSatellites;
 	private boolean isSolid;
@@ -12,7 +12,7 @@ public class Planeta {
 	private double pressure;
 	
 	public Planeta(int rad, double temp, int sat, boolean solid, double mass, boolean haveAtmosphere, String name, double pressure) {
-		setRadious(rad);
+		setRadius(rad);
 		setTemperature(temp);
 		setNumberOfSatellites(sat);
 		setIsSolid(solid);
@@ -22,7 +22,7 @@ public class Planeta {
 		setPressure(pressure);
 	}
 	
-	public void setRadious(int i) {radious = i;}
+	public void setRadius(int i) {radius = i;}
 	public void setTemperature(double i) {temperature = i;}
 	public void setNumberOfSatellites(int i) {numberOfSatellites = i;}
 	public void setIsSolid(boolean i) {isSolid = i;}
@@ -31,7 +31,7 @@ public class Planeta {
 	public void setName(String i) {name = i;}
 	public void setPressure(double i) {pressure = i;}
 	
-	public int getRadious() {return radious;}
+	public int getRadius() {return radius;}
 	public double getTemperature() {return temperature;}
 	public int getNumberOfSatellites() {return numberOfSatellites;}
 	public boolean getIsSolid() {return isSolid;}
