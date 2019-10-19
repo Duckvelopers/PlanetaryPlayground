@@ -10,6 +10,9 @@
             "SUN": "Sun",
             "PROXIMA_CENTAURI": "Proxima Centauri",
             "PEGASI": "PEGASI-51"
+        },
+        "SEQUENCE": {
+            "TITLE": "Select the sequence"
         }
     }
 }

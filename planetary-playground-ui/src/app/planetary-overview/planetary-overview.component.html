@@ -11,12 +11,28 @@
                 </mat-card-subtitle>
                 <mat-card-content>
                     <form>
-                        <mat-radio-group>
-                            <mat-radio-button value="custom">{{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}</mat-radio-button>
-                            <mat-radio-button value="sun">{{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}</mat-radio-button>
-                            <mat-radio-button value="centauri">{{ 'STAR_FORM.SELECTOR_RADIO.PROXIMA_CENTAURI' | translate }}</mat-radio-button>
-                            <mat-radio-button value="pegasi">{{ 'STAR_FORM.SELECTOR_RADIO.PEGASI' | translate }}</mat-radio-button>
-                        </mat-radio-group>
+                        <ng-container fxLayout="column">
+                            <mat-label>{{ 'STAR_FORM.SELECTOR_RADIO.TITLE' | translate }}:</mat-label>
+                            <mat-radio-group fxLayout="row" class="radio-group-spacer">
+                                <mat-radio-button value="custom">{{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
+                                </mat-radio-button>
+                                <mat-radio-button value="sun">{{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}
+                                </mat-radio-button>
+                                <mat-radio-button value="centauri">
+                                    {{ 'STAR_FORM.SELECTOR_RADIO.PROXIMA_CENTAURI' | translate }}</mat-radio-button>
+                                <mat-radio-button value="pegasi">{{ 'STAR_FORM.SELECTOR_RADIO.PEGASI' | translate }}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </ng-container>
+                        
+                        <ng-container fxLayout="column">
+                            <mat-label>{{ 'STAR_FORM.SEQUENCE.TITLE' | translate }}:</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let sequence of sequences" [value]="sequence.identificator">
+                                    {{sequence.name}}
+                                </mat-option>
+                            </mat-select>
+                        </ng-container>
                     </form>
                 </mat-card-content>
             </mat-card>
