@@ -1,7 +1,7 @@
 <div fxLayout="column" fxFill>
     <div fxFlex="35" fxLayout="row" class="space-background">
         <div fxFlex="10" fxLayoutAlign="center center">
-            <img src="../../assets/planets/Sun.png" class="sun" (click)="currentSunInfo()" />
+            <img *ngIf="currentSun" src="../../assets/planets/Sun.png" class="sun" (click)="currentSunInfo()" />
         </div>
         <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets; index as i">
             <div fxFlex fxLayoutAlign="space-evenly center">
@@ -73,7 +73,13 @@
                 <mat-card-content>
                     <mat-tab-group *ngIf="currentPlanetSelected; else selectPlanet">
                         <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
-
+                            <mat-list dense>
+                                <ng-container *ngFor="let description of currentPlanetSelected | keyvalue">
+                                    <mat-list-item *ngIf="description.key!=='descripciones'" class="less-font">
+                                        <mat-icon>info</mat-icon>{{description.value}}
+                                    </mat-list-item>
+                                </ng-container>
+                            </mat-list>
                         </mat-tab>
                         <mat-tab label="{{ 'DETAILS.DESCRIPTION' | translate }}">
                             <mat-list dense>

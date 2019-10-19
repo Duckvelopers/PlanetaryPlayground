@@ -1,6 +1,6 @@
 {
     "CARD_HEADLINES": {
-        "STAR_CONFIGURE": "Star configurator",
+        "STAR_CONFIGURE": "Solar system configurator",
         "DETAILS": "Details",
         "PLANET_DETAILS": "Planet {{name}} details"
     },
@@ -28,6 +28,6 @@
             "TITLE": "Information"
         },
         "DESCRIPTION": "Description",
-        "SELECT_SOMETHING": "Select a star and a planet first please."
+        "SELECT_SOMETHING": "Select the solar system and then the star or a planet!"
     }
 }
