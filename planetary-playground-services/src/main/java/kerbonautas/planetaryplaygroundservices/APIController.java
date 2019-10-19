@@ -42,11 +42,8 @@ public class APIController {
 	@ResponseBody
 	public String setSecuencia(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
-		ArrayList<String> arr = new ArrayList<String>();
-		arr.add("O");
-		arr.add("G");
 		Gson gson = new Gson();
-		return gson.toJson(arr);
+		return gson.toJson(null);
 		//TODO Eliminar del arrayList el planeta eliminado
 	}
 }
