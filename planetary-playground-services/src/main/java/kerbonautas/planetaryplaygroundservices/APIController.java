@@ -19,10 +19,19 @@ public class APIController {
 			produces = MediaType.APPLICATION_JSON_VALUE,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public String process(@RequestBody Map<String, Object> payload) 
+	public String newStar(@RequestBody Map<String, Object> payload) 
+	    throws Exception {
+		//TODO recibir la estrella creada y devolver el sistema solar
+		Gson gson = new Gson();
+		return gson.toJson("");
+	}
+	@RequestMapping(value = "/delPlanet",
+			method = RequestMethod.DELETE,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void deletePlanet(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
 		Gson gson = new Gson();
-		Planeta p = new Planeta(1, 1, 1, 1, true, 1, true, "Culomon", 1.1d);
-		return gson.toJson(p);
+		//TODO Eliminar del arrayList el planeta eliminado
 	}
 }
