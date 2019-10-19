@@ -11,7 +11,7 @@
                 </mat-card-subtitle>
                 <mat-card-content>
                     <form>
-                        <ng-container fxLayout="column">
+                        <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SELECTOR_RADIO.TITLE' | translate }}:</mat-label>
                             <mat-radio-group fxLayout="row" class="radio-group-spacer">
                                 <mat-radio-button value="custom">{{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
@@ -23,16 +23,32 @@
                                 <mat-radio-button value="pegasi">{{ 'STAR_FORM.SELECTOR_RADIO.PEGASI' | translate }}
                                 </mat-radio-button>
                             </mat-radio-group>
-                        </ng-container>
-                        
-                        <ng-container fxLayout="column">
+                        </div>
+
+                        <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SEQUENCE.TITLE' | translate }}:</mat-label>
                             <mat-select>
-                                <mat-option *ngFor="let sequence of sequences" [value]="sequence.identificator">
-                                    {{sequence.name}}
-                                </mat-option>
+                                <mat-option value="1">{{ 'STAR_FORM.SEQUENCE.SUPERGIANT' | translate }}</mat-option>
+                                <mat-option value="3">{{ 'STAR_FORM.SEQUENCE.GIANT' | translate }}</mat-option>
+                                <mat-option value="5">{{ 'STAR_FORM.SEQUENCE.MAIN_SEQUENCE' | translate }}</mat-option>
+                                <mat-option value="7">{{ 'STAR_FORM.SEQUENCE.WHITE_DWARF' | translate }}</mat-option>
                             </mat-select>
-                        </ng-container>
+                        </div>
+
+                        <div fxLayout="column">
+                            <mat-label>{{ 'STAR_FORM.STELLAR_CLASSIFICATION.TITLE' | translate }}:</mat-label>
+                            <mat-select>
+                                <mat-option value="O">O</mat-option>
+                                <mat-option value="B">B</mat-option>
+                                <mat-option value="A">A</mat-option>
+                                <mat-option value="F">F</mat-option>
+                                <mat-option value="G">G</mat-option>
+                                <mat-option value="K">K</mat-option>
+                                <mat-option value="M">M</mat-option>
+                                <mat-option value="L">L</mat-option>
+                                <mat-option value="T">T</mat-option>
+                            </mat-select>
+                        </div>
                     </form>
                 </mat-card-content>
             </mat-card>
