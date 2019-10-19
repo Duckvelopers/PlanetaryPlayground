@@ -32,9 +32,9 @@ public class APIController {
 	@ResponseBody
 	public String setSecuencia(@RequestBody Map<String, Object> payload) 
 	    throws Exception {
-		Gson gson = new Gson();
-		return gson.toJson(null);
-		//TODO Eliminar del arrayList el planeta eliminado
+		//TODO devolver los tipos espectrales en un Gson gson = new Gson();
+		//return gson.toJson(Objeto a pasar);
+		return null;
 	}
 	@RequestMapping(value = "/star",
 			method = RequestMethod.POST,
