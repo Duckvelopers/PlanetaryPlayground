@@ -35,6 +35,19 @@ public class APIController {
 		Gson gson = new Gson();
 		return gson.toJson(Limitador.tiposEspectralesPosibles(secuencia));
 	}
+	@RequestMapping(value = "/espectral",
+			method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String setEspectral(@RequestBody Map<String, Object> payload) throws Exception {
+		String secuencia = payload.get(StarVariables.llamadas.SEQUENCE).toString();
+		String espectral = payload.get(StarVariables.llamadas.CLASS).toString();
+		Gson gson = new Gson();
+		Limitador limit = new Limitador();
+		String val = secuencia+espectral;
+		return gson.toJson(limit.getValores(val));
+	}
 	@RequestMapping(value = "/star",
 			method = RequestMethod.POST,
 			produces = MediaType.APPLICATION_JSON_VALUE,

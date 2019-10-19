@@ -17,7 +17,7 @@ public class Planeta {
 	private double dayDuration;
 	private String imagen;
 	private HashMap<String, String> descripciones = new HashMap <String, String>();
-	
+
 	public Planeta(int radius, double surfaceTemperature, boolean isSolid, double mass, boolean haveAtmosphere,
 			String name, double pressure, double magneticField, double starDistance, double orbitalPeriod,
 			double dayDuration) {
@@ -145,19 +145,35 @@ public class Planeta {
 	}
 	
 	public void setDescripcion() {
-		//descripciones.put(key, value);
-		descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico());
-		descripciones.put("DISTANCIA", EsDefs.explicacionDistancia(isSolid));
-		descripciones.put("DISTANCIAAESTRELLA", EsDefs.explicacionDistanciaAEstrella());
-		descripciones.put("DURACIONDIA", EsDefs.explicacionDuracionDia());
-		descripciones.put("GASEOSOONO", EsDefs.explicacionGaseosoONo(isSolid));
-		descripciones.put("MASA", EsDefs.explicacionMasa());
-		descripciones.put("NOMBRE", EsDefs.explicacionNombre());
-		descripciones.put("PERIODOORBITAL", EsDefs.explicacionPeriodoOrbital());
-		descripciones.put("PRESION", EsDefs.explicacionPresion());
-		descripciones.put("TAMANHO", EsDefs.explicacionTamanho(isSolid));
-		descripciones.put("TEMPERATURA", EsDefs.explicacionTemperatura());
-		descripciones.put("ATMOSFERA", EsDefs.explicacionTieneAtmosfera(haveAtmosphere));
+
+		if (StarVariables.eng) {
+			descripciones.put("CAMPOMAGNETICO", IngDefs.explicacionCampoMagnetico());
+			descripciones.put("DISTANCIA", IngDefs.explicacionDistancia(isSolid));
+			descripciones.put("DISTANCIAAESTRELLA", IngDefs.explicacionDistanciaAEstrella());
+			descripciones.put("DURACIONDIA", IngDefs.explicacionDuracionDia());
+			descripciones.put("GASEOSOONO", IngDefs.explicacionGaseosoONo(isSolid));
+			descripciones.put("MASA", IngDefs.explicacionMasa());
+			descripciones.put("NOMBRE", IngDefs.explicacionNombre());
+			descripciones.put("PERIODOORBITAL", IngDefs.explicacionPeriodoOrbital());
+			descripciones.put("PRESION", IngDefs.explicacionPresion());
+			descripciones.put("TAMANHO", IngDefs.explicacionTamanho(isSolid));
+			descripciones.put("TEMPERATURA", IngDefs.explicacionTemperatura());
+			descripciones.put("ATMOSFERA", IngDefs.explicacionTieneAtmosfera(haveAtmosphere));
+		} else {
+			descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico());
+			descripciones.put("DISTANCIA", EsDefs.explicacionDistancia(isSolid));
+			descripciones.put("DISTANCIAAESTRELLA", EsDefs.explicacionDistanciaAEstrella());
+			descripciones.put("DURACIONDIA", EsDefs.explicacionDuracionDia());
+			descripciones.put("GASEOSOONO", EsDefs.explicacionGaseosoONo(isSolid));
+			descripciones.put("MASA", EsDefs.explicacionMasa());
+			descripciones.put("NOMBRE", EsDefs.explicacionNombre());
+			descripciones.put("PERIODOORBITAL", EsDefs.explicacionPeriodoOrbital());
+			descripciones.put("PRESION", EsDefs.explicacionPresion());
+			descripciones.put("TAMANHO", EsDefs.explicacionTamanho(isSolid));
+			descripciones.put("TEMPERATURA", EsDefs.explicacionTemperatura());
+			descripciones.put("ATMOSFERA", EsDefs.explicacionTieneAtmosfera(haveAtmosphere));
+		}
+		
 	}
 	
 }

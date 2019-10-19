@@ -25,6 +25,7 @@ public class Estrella {
 		this.masa = masa;
 		this.radio = radio;
 		construirEstrella();
+		setDescription();
 	}
 	
 	public int getSecuencia() {
@@ -133,5 +134,19 @@ public class Estrella {
 		double auxMagnitudAbsoluta = 0;
 		auxMagnitudAbsoluta = 4.75 - (2.5 * Math.log10(auxLuminosidad/constanteLuminosidadSol));
 		return auxMagnitudAbsoluta;
+	}
+	
+	public void setDescription() {
+		if (StarVariables.eng) {
+			
+		} else {
+			descripciones.put("LUMINOSIDAD", EsStarDefs.explicacionesLuminosidad());
+			descripciones.put("MAGNITUD", EsStarDefs.explicacionesMagnitud());
+			descripciones.put("MASA", EsStarDefs.explicacionesMasa());
+			descripciones.put("RADIO", EsStarDefs.explicacionesRadio());
+			descripciones.put("SECUENCIA", EsStarDefs.explicacionesSecuencia());
+			descripciones.put("TEMPERATURA", EsStarDefs.explicacionesTemperatura());
+			descripciones.put("TIPOESPECTRAL", EsStarDefs.explicacionesTipoEspectral());
+		}
 	}
 }

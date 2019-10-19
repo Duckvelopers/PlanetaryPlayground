@@ -1,6 +1,8 @@
 package kerbonautas.planetaryplaygroundservices;
 
 public class StarVariables {
+	public static final boolean eng = true;
+	
 	public static class llamadas{
 		public static String SEQUENCE		= "SEQUENCE";
 		public static String CLASS			= "CLASS";
