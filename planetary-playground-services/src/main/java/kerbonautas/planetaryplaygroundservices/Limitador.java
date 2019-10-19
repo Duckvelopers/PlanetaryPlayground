@@ -36,6 +36,9 @@ public class Limitador {
 		tablaValores.put("7F", new double[]{1,2,3,4});
 		tablaValores.put("7G", new double[]{1,2,3,4});
 	}
+	public double[] getValores(String val) {
+		return tablaValores.get(val);
+	}
 	
 	public static ArrayList<String> tiposEspectralesPosibles (int secuencia){
 		ArrayList<String> arrayTiposEspectrales = new ArrayList<String>();
