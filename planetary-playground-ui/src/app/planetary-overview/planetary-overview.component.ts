@@ -187,7 +187,6 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
-      console.log(response);
       this.currentSun = response.star
       this.currentPlanets = response.ArrayPlanets;
       this.displayRepresentation = true;
@@ -298,7 +297,6 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
-      console.log(response);
       this.currentSun = response.star
       this.currentPlanets = response.ArrayPlanets;
       this.displayRepresentation = true;
