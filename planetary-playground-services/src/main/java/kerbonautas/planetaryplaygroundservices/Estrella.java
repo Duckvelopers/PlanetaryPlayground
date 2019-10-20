@@ -150,10 +150,9 @@ public class Estrella {
 	
 	public void setDescription() {
 		if (StarVariables.eng) {
-			
-		} else {
 			descripciones.put(StarVariables.llamadas.SEQUENCE, IngStarDefs.explicacionsecuencia(getSecuencia()));
 			descripciones.put(StarVariables.llamadas.CLASS, IngStarDefs.explicacionclasespectral(getTipoEspectral()));
+		} else {
 		}
 	}
 }
