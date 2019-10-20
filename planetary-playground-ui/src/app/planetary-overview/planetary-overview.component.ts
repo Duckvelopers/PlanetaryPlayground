@@ -161,14 +161,16 @@ export class PlanetaryOverviewComponent implements OnInit {
       this.radiusSlider.reset();
       this.radiusSlider.disable();
       this.massSlider.reset();
-      this.massSlider.reset();
+      this.massSlider.disable();
       this.slidersRadios.reset();
       this.slidersRadios.enable();
 
       this.radiusSlider.setValue(response[0]);
+      this.radiusSliderValue = Math.round(response[0] * 10) / 10;;
       this.minRadius = response[0];
       this.maxRadius = response[1];
       this.massSlider.setValue(response[2]);
+      this.massSliderValue = Math.round(response[2] * 10) / 10;
       this.minMass = response[2];
       this.maxMass = response[3];
     });
