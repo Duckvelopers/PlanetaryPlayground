@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class StuffGenerator {
-	private static String[] letter = new String[] {" B"," C"," D"," E"," F"," G"," H"};
+	private static String[] letter = new String[] {" b"," c"," d"," e"," f"," g"," h"};
 	public static SistemaEstelar generarSistemaRandom(int secuencia, String espectral, double masa, double radio) {
 		Estrella star = new Estrella(secuencia, espectral, masa, radio);
 		ArrayList<Planeta> arrPlanets = new ArrayList<Planeta>();
 		int numPlanetas = ((int)(Math.random()*6))+1;
-		System.out.println("Numero de planetas generados: "+numPlanetas);
 		String starName = star.getName().split(" ")[0];
-		System.out.println("Nombre del primer planeta: "+starName+" B");
 		for(int i=0;i<numPlanetas;i++) {
 			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, radio, masa, starName+letter[i]));
 		}
@@ -33,7 +31,7 @@ public class StuffGenerator {
 		double auxDistanciaEstrella = distanciaEstrella(auxEsTerrestre, radioEstrella, masaEstrella);
 		double auxPeriodoOrbital = periodoOrbital(masaEstrella, auxDistanciaEstrella);
 		int auxRadio = radio(auxEsTerrestre);
-		double auxDuracionDia = duracionDia();
+		double auxDuracionDia = duracionDia(auxPeriodoOrbital);
 		double auxMasa = masa(auxEsTerrestre);
 		double auxCampoMagnetico = campoMagnetico(auxEsTerrestre, auxMasa);
 		boolean auxTieneAtmosfera = tieneAtmosfera(auxCampoMagnetico);
@@ -78,7 +76,7 @@ public class StuffGenerator {
 	public static double periodoOrbital(double auxMasaEstrella, double auxDistanciaSol) {
 		double auxPeriodoOrbital = 0;
 		int segundosDia = 86400;
-		double constanteGravitacionUniversal = 8.874 * Math.pow(10, 26);
+		double constanteGravitacionUniversal = 1.178 * Math.pow(10, 28);
 		auxPeriodoOrbital = 4 * Math.pow(Math.PI, 2) * Math.pow(auxDistanciaSol, 3);
 		auxPeriodoOrbital = auxPeriodoOrbital / (constanteGravitacionUniversal * auxMasaEstrella);
 		auxPeriodoOrbital = Math.sqrt(auxPeriodoOrbital) / segundosDia;
@@ -97,10 +95,13 @@ public class StuffGenerator {
 		return auxRadio;
 	}
 	
-	public static double duracionDia() {
-		double auxDuracionDinero = 0;
-		double duracionMinima = 0.1;
-		return auxDuracionDinero;
+	public static double duracionDia(double auxPeriodoOrbital) {
+		double auxDuracionDia = 0;
+		auxDuracionDia = Math.random() * (auxPeriodoOrbital - 0.1) + 0.1;
+		if (Math.random() < 0.05) {
+			auxDuracionDia = -auxDuracionDia;
+		}
+		return auxDuracionDia;
 	}
 	
 	public static double masa(boolean auxEsTerrestre) {
@@ -135,6 +136,13 @@ public class StuffGenerator {
 	
 	public static double presionAtmosferica(boolean auxTieneAtmosfera) {
 		double auxPresionAtmosferica = 0;
+		if(auxTieneAtmosfera) {
+			double variableRandom = Math.random();
+			if(variableRandom > 0.9) auxPresionAtmosferica = (variableRandom * 149) + 1;
+			else auxPresionAtmosferica = (variableRandom * 149) + 0.5;
+		} else {
+			auxPresionAtmosferica = 0.001;
+		}
 		return auxPresionAtmosferica;
 	}
 	
