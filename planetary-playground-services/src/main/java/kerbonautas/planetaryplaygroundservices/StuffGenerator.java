@@ -48,7 +48,7 @@ public class StuffGenerator {
 
 	public static boolean esTerrestre(int auxSecuencia, String auxTipoEspectral) {
 		boolean auxEsTerrestre = false;
-		String codigo = auxTipoEspectral + auxSecuencia;
+		String codigo = auxSecuencia + auxTipoEspectral;
 		if (codigo.contains("1") && Math.random() > 0.9)
 			auxEsTerrestre = true;
 		else if (codigo.contains("3") && Math.random() > 0.8)
