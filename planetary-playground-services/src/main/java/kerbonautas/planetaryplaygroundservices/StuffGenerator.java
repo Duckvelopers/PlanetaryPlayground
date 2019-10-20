@@ -102,7 +102,7 @@ public class StuffGenerator {
 		if (auxEsTerrestre) {
 			auxRadio = (int) (Math.random() * (radioJupiter - radioMinimo) + radioMinimo);
 		} else {
-			auxRadio = (int) (((Math.random() * 14) + 1) * (radioJupiter - radioMinimo) + radioMinimo);
+			auxRadio = (int) (((Math.random() * 14) + 1) * (radioJupiter - radioMinimo) + (radioJupiter / 2));
 		}
 		return auxRadio;
 	}
