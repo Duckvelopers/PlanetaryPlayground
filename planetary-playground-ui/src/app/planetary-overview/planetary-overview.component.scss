@@ -55,15 +55,28 @@
   margin-left: 5px;
 }
 
-.rotate {
-  animation: rotation 5s infinite linear;
+.rotate-right {
+  animation: rotationright 5s infinite linear;
 }
 
-@keyframes rotation {
+.rotate-left {
+  animation: rotationleft 5s infinite linear;
+}
+
+@keyframes rotationright {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(359deg);
+  }
+}
+
+@keyframes rotationleft {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
