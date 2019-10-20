@@ -27,7 +27,7 @@ public class PredefSystem{
 				StarVariables.nombrePlanetasSistemaSolar.MERCURIO, 0.0d,0.0d,0.387d,87.96d,58.7d);
 		mer.setMachacaImagen("t1");
 		Planeta ven =  new Planeta(6051, 722.15d, true, StarVariables.masaPlaneta(4.87d, 24), true,
-				StarVariables.nombrePlanetasSistemaSolar.VENUS, 92.8d,0.0d,0.72d,224.701d,243.01d);
+				StarVariables.nombrePlanetasSistemaSolar.VENUS, 92.8d,0.0d,0.72d,224.701d,-243.01d);
 		ven.setMachacaImagen("t6");
 		Planeta tie =  new Planeta(6371, 280.2d, true, StarVariables.masaPlaneta(5.9d, 24), true,
 				StarVariables.nombrePlanetasSistemaSolar.TIERRA, 1.0d,30.5d,1.0d,365.25d,0.9972d);
