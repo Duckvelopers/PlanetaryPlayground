@@ -71,95 +71,156 @@
                     <mat-divider></mat-divider>
                 </mat-card-subtitle>
                 <mat-card-content>
-                    <mat-tab-group *ngIf="currentPlanetSelected; else selectPlanet">
-                        <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
-                            <mat-list dense>
-                                <mat-list-item *ngIf="currentPlanetSelected.name" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.NAME'"
-                                        [translateParams]="{name: currentPlanetSelected.name}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.dayDuration !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.DAY_DURATION'"
-                                        [translateParams]="{days: currentPlanetSelected.dayDuration}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.haveAtmosphere; else notatmosphere"
-                                    class="less-font">
-                                    <mat-icon>info</mat-icon>{{'DETAILS.INFO.HAS_ATMOSPHERE' | translate}}
-                                </mat-list-item>
-                                <ng-template #notatmosphere>
-                                    <mat-list-item class="less-font">
-                                        <mat-icon>info</mat-icon>{{'DETAILS.INFO.HASNT_ATMOSPHERE' | translate}}
+                    <div *ngIf="selectedCorp; else selectCorp">
+                        <mat-tab-group *ngIf="currentPlanetSelected">
+                            <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
+                                <mat-list dense>
+                                    <mat-list-item *ngIf="currentPlanetSelected.name" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.NAME'"
+                                            [translateParams]="{name: currentPlanetSelected.name}">
+                                        </span>
                                     </mat-list-item>
-                                </ng-template>
-                                <mat-list-item *ngIf="currentPlanetSelected.pressure !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.PRESSURE'"
-                                        [translateParams]="{press: currentPlanetSelected.pressure}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.orbitalPeriod !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.ORBITAL_PERIOD'"
-                                        [translateParams]="{period: currentPlanetSelected.orbitalPeriod}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.radius !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.RADIUS'"
-                                        [translateParams]="{radius: currentPlanetSelected.radius}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.isSolid !== 0; else notsolid"
-                                    class="less-font">
-                                    <mat-icon>info</mat-icon>{{'DETAILS.INFO.IS_SOLID' | translate}}
-                                </mat-list-item>
-                                <ng-template #notsolid>
-                                    <mat-list-item class="less-font">
-                                        <mat-icon>info</mat-icon>{{'DETAILS.INFO.NOT_SOLID' | translate}}
+                                    <mat-list-item *ngIf="currentPlanetSelected.dayDuration !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.DAY_DURATION'"
+                                            [translateParams]="{days: currentPlanetSelected.dayDuration}">
+                                        </span>
                                     </mat-list-item>
-                                </ng-template>
-                                <mat-list-item *ngIf="currentPlanetSelected.mass !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.MASS'"
-                                        [translateParams]="{mass: currentPlanetSelected.mass}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.magneticField !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.MAGNETIC_FIELD'"
-                                        [translateParams]="{magnetic: currentPlanetSelected.magneticField}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.starDistance !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.STAR_DISTANCE'"
-                                        [translateParams]="{distance: currentPlanetSelected.starDistance}">
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item *ngIf="currentPlanetSelected.surfaceTemperature !== 0" class="less-font">
-                                    <mat-icon>info</mat-icon>
-                                    <span [translate]="'DETAILS.INFO.TEMPERATURE'"
-                                        [translateParams]="{temp: currentPlanetSelected.surfaceTemperature}">
-                                    </span>
-                                </mat-list-item>
-                            </mat-list>
-                        </mat-tab>
-                        <mat-tab label="{{ 'DETAILS.DESCRIPTION' | translate }}">
-                            <mat-list dense>
-                                <mat-list-item
-                                    *ngFor="let description of currentPlanetSelected.descripciones | keyvalue"
-                                    class="less-font">
-                                    <mat-icon>info</mat-icon>{{description.value}}
-                                </mat-list-item>
-                            </mat-list>
-                        </mat-tab>
-                    </mat-tab-group>
-                    <ng-template #selectPlanet>
-                        {{ 'DETAILS.SELECT_SOMETHING' | translate }}
+                                    <mat-list-item *ngIf="currentPlanetSelected.haveAtmosphere; else notatmosphere"
+                                        class="less-font">
+                                        <mat-icon>info</mat-icon>{{'DETAILS.INFO.HAS_ATMOSPHERE' | translate}}
+                                    </mat-list-item>
+                                    <ng-template #notatmosphere>
+                                        <mat-list-item class="less-font">
+                                            <mat-icon>info</mat-icon>{{'DETAILS.INFO.HASNT_ATMOSPHERE' | translate}}
+                                        </mat-list-item>
+                                    </ng-template>
+                                    <mat-list-item *ngIf="currentPlanetSelected.pressure !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.PRESSURE'"
+                                            [translateParams]="{press: currentPlanetSelected.pressure}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentPlanetSelected.orbitalPeriod !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.ORBITAL_PERIOD'"
+                                            [translateParams]="{period: currentPlanetSelected.orbitalPeriod}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentPlanetSelected.radius !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.RADIUS'"
+                                            [translateParams]="{radius: currentPlanetSelected.radius}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentPlanetSelected.isSolid; else notsolid"
+                                        class="less-font">
+                                        <mat-icon>info</mat-icon>{{'DETAILS.INFO.IS_SOLID' | translate}}
+                                    </mat-list-item>
+                                    <ng-template #notsolid>
+                                        <mat-list-item class="less-font">
+                                            <mat-icon>info</mat-icon>{{'DETAILS.INFO.NOT_SOLID' | translate}}
+                                        </mat-list-item>
+                                    </ng-template>
+                                    <mat-list-item *ngIf="currentPlanetSelected.mass !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.MASS'"
+                                            [translateParams]="{mass: currentPlanetSelected.mass}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentPlanetSelected.magneticField !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.MAGNETIC_FIELD'"
+                                            [translateParams]="{magnetic: currentPlanetSelected.magneticField}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentPlanetSelected.starDistance !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.STAR_DISTANCE'"
+                                            [translateParams]="{distance: currentPlanetSelected.starDistance}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentPlanetSelected.surfaceTemperature !== 0"
+                                        class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.INFO.TEMPERATURE'"
+                                            [translateParams]="{temp: currentPlanetSelected.surfaceTemperature}">
+                                        </span>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-tab>
+                            <mat-tab label="{{ 'DETAILS.DESCRIPTION' | translate }}">
+                                <mat-list dense>
+                                    <mat-list-item
+                                        *ngFor="let description of currentPlanetSelected.descripciones | keyvalue"
+                                        class="less-font">
+                                        <mat-icon>info</mat-icon>{{description.value}}
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-tab>
+                        </mat-tab-group>
+                        <!--  -->
+                        <mat-tab-group *ngIf="currentSunSelected">
+                            <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
+                                <mat-list dense>
+                                    <mat-list-item *ngIf="currentSunSelected.luminosidad !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.LUMINOSITY'"
+                                            [translateParams]="{lum: currentSunSelected.luminosidad}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentSunSelected.radio !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.RADIUS'"
+                                            [translateParams]="{rad: currentSunSelected.radio}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentSunSelected.magnitudAbsoluta !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.MAGNITUDE'"
+                                            [translateParams]="{magnitude: currentSunSelected.magnitudAbsoluta}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentSunSelected.masa !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.MASS'"
+                                            [translateParams]="{mass: currentSunSelected.masa}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentSunSelected.secuencia" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.SEQUENCE'"
+                                            [translateParams]="{seq: getSequenceTranslation(currentSunSelected.secuencia)}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentSunSelected.temperatura !== 0" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.TEMP'"
+                                            [translateParams]="{temp: currentSunSelected.temperatura}">
+                                        </span>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="currentSunSelected.tipoEspectral" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.SPECTRAL'"
+                                            [translateParams]="{spec: currentSunSelected.tipoEspectral}">
+                                        </span>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-tab>
+                            <mat-tab label="{{ 'DETAILS.DESCRIPTION' | translate }}">
+                                <mat-list dense>
+                                    <mat-list-item
+                                        *ngFor="let description of currentSunSelected.descripciones | keyvalue"
+                                        class="less-font">
+                                        <mat-icon>info</mat-icon>{{description.value}}
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                    <ng-template #selectCorp>
+                        <span>{{ 'DETAILS.SELECT_SOMETHING' | translate }}</span>
                     </ng-template>
                 </mat-card-content>
             </mat-card>

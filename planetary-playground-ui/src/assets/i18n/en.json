@@ -36,9 +36,18 @@
             "IS_SOLID": "The planet is solid",
             "NOT_SOLID": "The planet isn't solid",
             "MASS": "The mass of the planet is {{mass}}kg",
-            "MAGNETIC_FIELD": "The magnetic field is {{magnetic}}\u00B5",
+            "MAGNETIC_FIELD": "The magnetic field is {{magnetic}}\u00B5T",
             "STAR_DISTANCE": "The distance to the star is {{distance}}ua",
             "TEMPERATURE": "The surface temperature is {{temp}}K"
+        },
+        "SUN": {
+            "LUMINOSITY": "The luminosity is {{lum}}W",
+            "RADIUS": "The radius of the star is {{rad}}R\u2609",
+            "MAGNITUDE": "The absolute magnitude of the star is {{magnitude}}",
+            "MASS": "The mass of the star is {{mass}}M\u2609",
+            "SEQUENCE": "The sequence of the star is '{{seq}}'",
+            "TEMP": "The temperature of the star is {{temp}}K",
+            "SPECTRAL": "The spectral type is '{{spec}}'"
         },
         "DESCRIPTION": "Description",
         "SELECT_SOMETHING": "Select the solar system and then the star or a planet!"

@@ -33,7 +33,7 @@ export interface StarObject {
   luminosidad: number,
   magnitudAbsoluta: number,
   masa: number,
-  radio: number
+  radio: number,
   secuencia: number,
   temperatura: number,
   tipoEspectral: string
@@ -73,7 +73,7 @@ export class PlanetaryOverviewComponent implements OnInit {
   sequences: Secuencia[];
 
   currentSun: StarObject;
-  currentSunSelected : StarObject;
+  currentSunSelected: StarObject;
   currentPlanets: Planet[];
   currentPlanetSelected: Planet;
   selectedCorp: boolean;
@@ -135,6 +135,26 @@ export class PlanetaryOverviewComponent implements OnInit {
     this.selectedCorp = true;
     this.currentSunSelected = undefined;
     this.currentPlanetSelected = this.currentPlanets[index];
+  }
+
+  getSequenceTranslation(sequence) {
+    let translation = "";
+    switch (sequence) {
+      case 1:
+        translation = this.translate.instant('STAR_FORM.SEQUENCE.SUPERGIANT');
+        break;
+      case 2:
+        break;
+      case 3:
+        translation = this.translate.instant('STAR_FORM.SEQUENCE.GIANT');
+        break;
+      case 4:
+        break;
+      case 5:
+        translation = this.translate.instant('STAR_FORM.SEQUENCE.MAIN_SEQUENCE');
+        break;
+    }
+    return translation;
   }
 }
 
