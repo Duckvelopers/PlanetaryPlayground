@@ -13,7 +13,7 @@ public class StuffGenerator {
 		int numPlanetas = ((int) (Math.random() * 6)) + 1;
 		String starName = star.getName().substring(0, star.getName().length() - 1);
 		for (int i = 0; i < numPlanetas; i++) {
-			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, radio, masa, starName + letter[i]));
+			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, star.getRadio(), star.getMasa(), starName + letter[i]));
 		}
 		SistemaEstelar se = new SistemaEstelar(star, arrPlanets);
 		return se;
