@@ -10,13 +10,13 @@ public class EsDefs {
 			str.append("Un planeta gaseoso podria estar cerca de la estrella porque: \n");
 			str.append("-una estrella gigante que haya evolcionado de la secuencia principal y se haya acercado durante su evolucion al planeta gaseosso que estaba lejos \n");
 			str.append("-el planeta estaba lejos pero al interactuar gravitatoriamente con otro planeta lo catapulto a una orbita cercana \n");
-			str.append("-era un planeta errante que fue captado por la orbita de la estrella");
+			str.append("-era un planeta errante que fue captado por la gravedad de la estrella");
 		} else {
 			str.append("Los planetas terrestres suelen estar en regiones cercanas a su estrella. \n \n");
 			str.append("Un planeta terrestre podria estar lejos de la estrella y/o en orbita de una supergigante o gigante porque: \n");
 			str.append("-una estrella al evolucionar a gigante destruyo la atmosfera de un planeta gaseoso y sobrevivió su nucleo terrestre \n");
 			str.append("-el planeta estaba cerca pero al interactuar gravitatoriamente con otro planeta lo catapulto a una orbita lejana \n");
-			str.append("-era un planeta errante que fue captado por la orbita de la estrella");
+			str.append("-era un planeta errante que fue captado por la gravedad de la estrella");
 		}
 		
 		return str.toString();
