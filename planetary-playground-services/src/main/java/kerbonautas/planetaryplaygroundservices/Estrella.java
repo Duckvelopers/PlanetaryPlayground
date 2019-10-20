@@ -24,12 +24,15 @@ public class Estrella {
 		this.tipoEspectral = tipoEspectral;
 		this.masa = masa;
 		this.radio = radio;
-		//TODO borrar esto
-		this.name = "Estrella A";
+		this.name = generarNombre();
 		construirEstrella();
 		setDescription();
 	}
 	
+	private String generarNombre() {
+		return "KBP "+(((int)(Math.random()*999999))+1)+" a";
+	}
+
 	public int getSecuencia() {
 		return secuencia;
 	}
