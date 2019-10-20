@@ -25,7 +25,20 @@
     },
     "DETAILS": {
         "INFO": {
-            "TITLE": "Information"
+            "TITLE": "Information",
+            "NAME": "Name of the planet is '{{name}}'",
+            "DAY_DURATION": "Days are {{days}} long",
+            "HAS_ATMOSPHERE": "It does have atmosphere",
+            "HASNT_ATMOSPHERE": "It doesn't have atmosphere",
+            "PRESSURE": "The pressure of the planet is {{press}} ATM",
+            "ORBITAL_PERIOD": "It's orbital period is of {{period}} days",
+            "RADIUS": "The radius measures {{radius}}km",
+            "IS_SOLID": "The planet is solid",
+            "NOT_SOLID": "The planet isn't solid",
+            "MASS": "The mass of the planet is {{mass}}kg",
+            "MAGNETIC_FIELD": "The magnetic field is {{magnetic}}\u00B5",
+            "STAR_DISTANCE": "The distance to the star is {{distance}}ua",
+            "TEMPERATURE": "The surface temperature is {{temp}}K"
         },
         "DESCRIPTION": "Description",
         "SELECT_SOMETHING": "Select the solar system and then the star or a planet!"

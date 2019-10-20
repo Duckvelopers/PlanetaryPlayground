@@ -74,11 +74,78 @@
                     <mat-tab-group *ngIf="currentPlanetSelected; else selectPlanet">
                         <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
                             <mat-list dense>
-                                <ng-container *ngFor="let description of currentPlanetSelected | keyvalue">
-                                    <mat-list-item *ngIf="description.key !== 'descripciones' && description.value !== 0" class="less-font">
-                                        <mat-icon>info</mat-icon>{{description.value}}
+                                <mat-list-item *ngIf="currentPlanetSelected.name" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.NAME'"
+                                        [translateParams]="{name: currentPlanetSelected.name}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.dayDuration !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.DAY_DURATION'"
+                                        [translateParams]="{days: currentPlanetSelected.dayDuration}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.haveAtmosphere; else notatmosphere"
+                                    class="less-font">
+                                    <mat-icon>info</mat-icon>{{'DETAILS.INFO.HAS_ATMOSPHERE' | translate}}
+                                </mat-list-item>
+                                <ng-template #notatmosphere>
+                                    <mat-list-item class="less-font">
+                                        <mat-icon>info</mat-icon>{{'DETAILS.INFO.HASNT_ATMOSPHERE' | translate}}
                                     </mat-list-item>
-                                </ng-container>
+                                </ng-template>
+                                <mat-list-item *ngIf="currentPlanetSelected.pressure !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.PRESSURE'"
+                                        [translateParams]="{press: currentPlanetSelected.pressure}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.orbitalPeriod !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.ORBITAL_PERIOD'"
+                                        [translateParams]="{period: currentPlanetSelected.orbitalPeriod}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.radius !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.RADIUS'"
+                                        [translateParams]="{radius: currentPlanetSelected.radius}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.isSolid !== 0; else notsolid"
+                                    class="less-font">
+                                    <mat-icon>info</mat-icon>{{'DETAILS.INFO.IS_SOLID' | translate}}
+                                </mat-list-item>
+                                <ng-template #notsolid>
+                                    <mat-list-item class="less-font">
+                                        <mat-icon>info</mat-icon>{{'DETAILS.INFO.NOT_SOLID' | translate}}
+                                    </mat-list-item>
+                                </ng-template>
+                                <mat-list-item *ngIf="currentPlanetSelected.mass !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.MASS'"
+                                        [translateParams]="{mass: currentPlanetSelected.mass}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.magneticField !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.MAGNETIC_FIELD'"
+                                        [translateParams]="{magnetic: currentPlanetSelected.magneticField}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.starDistance !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.STAR_DISTANCE'"
+                                        [translateParams]="{distance: currentPlanetSelected.starDistance}">
+                                    </span>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="currentPlanetSelected.surfaceTemperature !== 0" class="less-font">
+                                    <mat-icon>info</mat-icon>
+                                    <span [translate]="'DETAILS.INFO.TEMPERATURE'"
+                                        [translateParams]="{temp: currentPlanetSelected.surfaceTemperature}">
+                                    </span>
+                                </mat-list-item>
                             </mat-list>
                         </mat-tab>
                         <mat-tab label="{{ 'DETAILS.DESCRIPTION' | translate }}">
