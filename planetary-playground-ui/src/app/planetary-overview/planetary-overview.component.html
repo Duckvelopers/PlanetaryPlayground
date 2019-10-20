@@ -1,13 +1,16 @@
 <div fxLayout="column" fxFill>
     <div fxFlex="35" fxLayout="row" class="space-background">
-        <div fxFlex="10" fxLayoutAlign="center center">
-            <img *ngIf="currentSun" src="../../assets/planets/Sun.png" class="sun" (click)="currentSunInfo()" />
-        </div>
-        <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets; index as i">
-            <div fxFlex fxLayoutAlign="space-evenly center">
-                <img src="../../assets/planets/{{planet.imagen}}.png" class="planet" (click)="currentPlanetInfo(i)" />
+        <ng-container *ngIf="displayRepresentation">
+            <div fxFlex="10" fxLayoutAlign="center center">
+                <img *ngIf="currentSun" src="../../assets/planets/Sun.png" class="sun" (click)="currentSunInfo()" />
             </div>
-        </div>
+            <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets; index as i">
+                <div fxFlex fxLayoutAlign="space-evenly center">
+                    <img src="../../assets/planets/{{planet.imagen}}.png" class="planet"
+                        (click)="currentPlanetInfo(i)" />
+                </div>
+            </div>
+        </ng-container>
     </div>
     <div fxFlex fxLayout="row">
         <div fxFlex="30" fxLayout="column" class="form-background">
@@ -43,11 +46,25 @@
 
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.STELLAR_CLASSIFICATION.TITLE' | translate }}:</mat-label>
-                            <mat-select [formControl]="classificationControl" (selectionChange)="classifChanged($event)">
+                            <mat-select [formControl]="classificationControl"
+                                (selectionChange)="classifChanged($event)">
                                 <mat-option *ngFor="let clas of classifications" [value]="clas">
                                     {{clas}}
                                 </mat-option>
                             </mat-select>
+                        </div>
+
+                        <div fxLayout="column">
+                            <mat-label>{{ 'STAR_FORM.SELECTOR_RADIO.TITLE' | translate }}:</mat-label>
+                            <mat-radio-group fxLayout="column" class="radio-group-spacer"
+                                (change)="radiusMassChange($event)">
+                                <mat-radio-button value="RADIUS">
+                                    {{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
+                                </mat-radio-button>
+                                <mat-radio-button value="MASS">
+                                    {{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}
+                                </mat-radio-button>
+                            </mat-radio-group>
                         </div>
                     </form>
                 </mat-card-content>

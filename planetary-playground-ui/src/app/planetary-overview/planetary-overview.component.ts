@@ -3,7 +3,7 @@ import { MatRadioChange } from '@angular/material/radio';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSelectChange } from '@angular/material/select';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export interface PredefResponse {
@@ -83,6 +83,7 @@ export class PlanetaryOverviewComponent implements OnInit {
 
   sequenceControl = new FormControl('');
   classificationControl = new FormControl('');
+  displayRepresentation: boolean;
 
   constructor(private _http: HttpClient, protected translate: TranslateService) {
     translate.onLangChange.subscribe(event => {
@@ -108,6 +109,7 @@ export class PlanetaryOverviewComponent implements OnInit {
   }
 
   starChange(_$event: MatRadioChange) {
+    this.displayRepresentation = false;
     this.selectedCorp = false;
     this.currentSunSelected = undefined;
     this.currentPlanetSelected = undefined;
@@ -120,7 +122,6 @@ export class PlanetaryOverviewComponent implements OnInit {
       this.requestCustom(_$event.value);
     } else {
       this.sequenceControl.enable();
-      this.sequenceControl.setValidators(Validators.required);
     }
   }
 
@@ -157,6 +158,7 @@ export class PlanetaryOverviewComponent implements OnInit {
     }).subscribe((response: PredefResponse) => {
       this.currentSun = response.star
       this.currentPlanets = response.ArrayPlanets;
+      this.displayRepresentation = true;
     });
   }
 
