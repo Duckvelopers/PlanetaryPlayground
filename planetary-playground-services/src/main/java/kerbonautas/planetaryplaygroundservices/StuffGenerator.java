@@ -57,6 +57,8 @@ public class StuffGenerator {
 			auxEsTerrestre = true;
 		else if ((codigo.equals("5A") || codigo.equals("5F")) && Math.random() > 0.65)
 			auxEsTerrestre = true;
+		else if ((codigo.equals("5G") || codigo.equals("5K")) && Math.random() > 0.5) 
+				auxEsTerrestre = true;
 		else if (codigo.equals("5M") && Math.random() > 0.20)
 			auxEsTerrestre = true;
 		return auxEsTerrestre;
