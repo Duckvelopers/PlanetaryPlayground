@@ -74,13 +74,13 @@ public class StuffGenerator {
 		} else {
 			double variableRandom = Math.random();
 			if (variableRandom < 0.1)
-				auxDistanciaEstrella = auxDistanciaEstrella * distanciaFactible + distanciaMinima;
+				auxDistanciaEstrella = variableRandom * distanciaFactible + distanciaMinima;
 			else {
 				if (variableRandom > 0.1 && variableRandom < 0.3) {
-					auxDistanciaEstrella = auxDistanciaEstrella * distanciaFactible + distanciaMinima
+					auxDistanciaEstrella = variableRandom * distanciaFactible + distanciaMinima
 							+ (0.3 * distanciaFactible);
 				} else {
-					auxDistanciaEstrella = auxDistanciaEstrella * distanciaFactible + distanciaMinima;
+					auxDistanciaEstrella = variableRandom * distanciaFactible + distanciaMinima;
 				}
 			}
 		}
