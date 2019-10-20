@@ -3,6 +3,8 @@ import { MatRadioChange } from '@angular/material/radio';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSelectChange } from '@angular/material/select';
+import { FormControl, Validators } from '@angular/forms';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export interface PredefResponse {
   ArrayPlanets: Planet[];
@@ -71,12 +73,16 @@ export class PlanetaryOverviewComponent implements OnInit {
   urlBase: string = 'http://planetplayground-env.wuakashtt6.eu-west-2.elasticbeanstalk.com';
 
   sequences: Secuencia[];
+  classifications: string[];
 
   currentSun: StarObject;
   currentSunSelected: StarObject;
   currentPlanets: Planet[];
   currentPlanetSelected: Planet;
   selectedCorp: boolean;
+
+  sequenceControl = new FormControl('');
+  classificationControl = new FormControl('');
 
   constructor(private _http: HttpClient, protected translate: TranslateService) {
     translate.onLangChange.subscribe(event => {
@@ -86,12 +92,16 @@ export class PlanetaryOverviewComponent implements OnInit {
         { name: translate.instant('STAR_FORM.SEQUENCE.MAIN_SEQUENCE'), value: 5 }
       ]
     });
+    this.classifications = [];
 
     this.selectedCorp = false;
     this.currentSun = undefined;
     this.currentSunSelected = undefined;
     this.currentPlanets = [];
     this.currentPlanetSelected = undefined;
+
+    this.sequenceControl.disable();
+    this.classificationControl.disable();
   }
 
   ngOnInit() {
@@ -103,12 +113,39 @@ export class PlanetaryOverviewComponent implements OnInit {
     this.currentPlanetSelected = undefined;
 
     if (_$event.value !== "CUSTOM") {
+      this.sequenceControl.disable();
+      this.sequenceControl.reset();
+      this.classificationControl.disable();
+      this.classificationControl.reset();
       this.requestCustom(_$event.value);
+    } else {
+      this.sequenceControl.enable();
+      this.sequenceControl.setValidators(Validators.required);
     }
   }
 
   sequenceChanged(_$event: MatSelectChange) {
-    console.log("Sequence changed works");
+    const requestedSequence = { "SEQUENCE": `${_$event.value}` };
+
+    this._http.post(this.urlBase + '/secuencia', requestedSequence, {
+      headers:
+        { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    }).subscribe((response: string[]) => {
+      this.classificationControl.reset();
+      this.classifications = response;
+      this.classificationControl.enable();
+    });
+  }
+
+  classifChanged(_$event) {
+    const requestedSequence = { "SEQUENCE": `${this.sequenceControl.value}`, "CLASS": `${_$event.value}` };
+
+    this._http.post(this.urlBase + '/espectral', requestedSequence, {
+      headers:
+        { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    }).subscribe((response: string[]) => {
+      console.log(response);
+    });
   }
 
   requestCustom(starName: string) {
@@ -118,8 +155,6 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
-      console.log(response)
-
       this.currentSun = response.star
       this.currentPlanets = response.ArrayPlanets;
     });

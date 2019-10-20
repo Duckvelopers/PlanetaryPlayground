@@ -21,7 +21,7 @@
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SELECTOR_RADIO.TITLE' | translate }}:</mat-label>
                             <mat-radio-group fxLayout="row" class="radio-group-spacer" (change)="starChange($event)">
-                                <mat-radio-button value="CUSTOM" disabled>
+                                <mat-radio-button value="CUSTOM">
                                     {{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
                                 </mat-radio-button>
                                 <mat-radio-button value="SUN">{{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}
@@ -35,7 +35,7 @@
 
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.SEQUENCE.TITLE' | translate }}:</mat-label>
-                            <mat-select (selectionChange)="sequenceChanged($event)">
+                            <mat-select [formControl]="sequenceControl" (selectionChange)="sequenceChanged($event)">
                                 <mat-option *ngFor="let sequence of sequences" [value]="sequence.value">
                                     {{ sequence.name }}</mat-option>
                             </mat-select>
@@ -43,16 +43,10 @@
 
                         <div fxLayout="column">
                             <mat-label>{{ 'STAR_FORM.STELLAR_CLASSIFICATION.TITLE' | translate }}:</mat-label>
-                            <mat-select>
-                                <mat-option value="O">O</mat-option>
-                                <mat-option value="B">B</mat-option>
-                                <mat-option value="A">A</mat-option>
-                                <mat-option value="F">F</mat-option>
-                                <mat-option value="G">G</mat-option>
-                                <mat-option value="K">K</mat-option>
-                                <mat-option value="M">M</mat-option>
-                                <mat-option value="L">L</mat-option>
-                                <mat-option value="T">T</mat-option>
+                            <mat-select [formControl]="classificationControl" (selectionChange)="classifChanged($event)">
+                                <mat-option *ngFor="let clas of classifications" [value]="clas">
+                                    {{clas}}
+                                </mat-option>
                             </mat-select>
                         </div>
                     </form>
