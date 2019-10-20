@@ -139,6 +139,7 @@ public class Planeta {
 		}
 		int i = (int) (Math.random() * 5 + 1);
 		str.append(i);
+		this.imagen=str.toString();
 	}
 	public void setMachacaImagen(String i) {
 		this.imagen=i;
