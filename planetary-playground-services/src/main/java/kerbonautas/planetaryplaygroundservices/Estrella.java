@@ -152,13 +152,8 @@ public class Estrella {
 		if (StarVariables.eng) {
 			
 		} else {
-			descripciones.put("LUMINOSIDAD", EsStarDefs.explicacionesLuminosidad());
-			descripciones.put("MAGNITUD", EsStarDefs.explicacionesMagnitud());
-			descripciones.put("MASA", EsStarDefs.explicacionesMasa());
-			descripciones.put("RADIO", EsStarDefs.explicacionesRadio());
-			descripciones.put("SECUENCIA", EsStarDefs.explicacionesSecuencia());
-			descripciones.put("TEMPERATURA", EsStarDefs.explicacionesTemperatura());
-			descripciones.put("TIPOESPECTRAL", EsStarDefs.explicacionesTipoEspectral());
+			descripciones.put(StarVariables.llamadas.SEQUENCE, IngStarDefs.explicacionsecuencia(getSecuencia()));
+			descripciones.put(StarVariables.llamadas.CLASS, IngStarDefs.explicacionclasespectral(getTipoEspectral()));
 		}
 	}
 }
