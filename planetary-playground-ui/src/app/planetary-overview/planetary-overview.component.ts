@@ -35,6 +35,7 @@ export interface StarObject {
   luminosidad: number,
   magnitudAbsoluta: number,
   masa: number,
+  name: string,
   radio: number,
   secuencia: number,
   temperatura: number,
@@ -186,6 +187,7 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: PredefResponse) => {
+      console.log(response);
       this.currentSun = response.star
       this.currentPlanets = response.ArrayPlanets;
       this.displayRepresentation = true;
@@ -273,6 +275,10 @@ export class PlanetaryOverviewComponent implements OnInit {
   }
 
   generateSolarSystem() {
+    this.selectedCorp = false;
+    this.currentPlanetSelected = undefined;
+    this.currentSunSelected = undefined;
+
     let mass = 0.0;
     let radius = 0.0;
     if (this.slidersRadios.value === "RADIUS") {

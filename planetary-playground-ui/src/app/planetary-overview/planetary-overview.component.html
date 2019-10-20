@@ -92,10 +92,17 @@
         <div fxFlex fxLayout="column" class="planet-detail-background">
             <mat-card class="planet-detail-style">
                 <mat-card-title>
-                    <span *ngIf="!currentPlanetSelected">{{ 'CARD_HEADLINES.DETAILS' | translate }}</span>
-                    <span *ngIf="currentPlanetSelected" [translate]="'CARD_HEADLINES.PLANET_DETAILS'"
-                        [translateParams]="{name: currentPlanetSelected.name}">
-                    </span>
+                    <div *ngIf="selectedCorp; else simpleDetails">
+                        <span *ngIf="currentPlanetSelected" [translate]="'CARD_HEADLINES.PLANET_DETAILS'"
+                            [translateParams]="{name: currentPlanetSelected.name}">
+                        </span>
+                        <span *ngIf="currentSunSelected" [translate]="'CARD_HEADLINES.SUN_DETAILS'"
+                            [translateParams]="{name: currentSunSelected.name}">
+                        </span>
+                    </div>
+                    <ng-template #simpleDetails>
+                        <span>{{ 'CARD_HEADLINES.DETAILS' | translate }}</span>
+                    </ng-template>
                 </mat-card-title>
                 <mat-card-subtitle>
                     <mat-divider></mat-divider>

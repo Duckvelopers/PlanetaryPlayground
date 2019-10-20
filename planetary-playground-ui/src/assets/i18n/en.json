@@ -2,7 +2,8 @@
     "CARD_HEADLINES": {
         "STAR_CONFIGURE": "Solar system configurator",
         "DETAILS": "Details",
-        "PLANET_DETAILS": "Planet {{name}} details"
+        "PLANET_DETAILS": "Planet {{name}} details",
+        "SUN_DETAILS": "Sun {{name}} details"
     },
     "STAR_FORM": {
         "SELECTOR_RADIO": {
