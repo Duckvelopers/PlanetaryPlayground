@@ -29,6 +29,7 @@ export interface StarObject {
   constanteLuminosidadSol: number,
   constanteRadioSol: number,
   constanteSigma: number,
+  descripciones: DescripcionesSol,
   luminosidad: number,
   magnitudAbsoluta: number,
   masa: number,
@@ -58,6 +59,9 @@ export interface DescripcionesPlaneta {
   TEMPERATURA: string
 }
 
+export interface DescripcionesSol {
+}
+
 @Component({
   selector: 'app-planetary-overview',
   templateUrl: './planetary-overview.component.html',
@@ -69,8 +73,10 @@ export class PlanetaryOverviewComponent implements OnInit {
   sequences: Secuencia[];
 
   currentSun: StarObject;
+  currentSunSelected : StarObject;
   currentPlanets: Planet[];
   currentPlanetSelected: Planet;
+  selectedCorp: boolean;
 
   constructor(private _http: HttpClient, protected translate: TranslateService) {
     translate.onLangChange.subscribe(event => {
@@ -81,7 +87,9 @@ export class PlanetaryOverviewComponent implements OnInit {
       ]
     });
 
+    this.selectedCorp = false;
     this.currentSun = undefined;
+    this.currentSunSelected = undefined;
     this.currentPlanets = [];
     this.currentPlanetSelected = undefined;
   }
@@ -90,6 +98,8 @@ export class PlanetaryOverviewComponent implements OnInit {
   }
 
   starChange(_$event: MatRadioChange) {
+    this.selectedCorp = false;
+    this.currentSunSelected = undefined;
     this.currentPlanetSelected = undefined;
 
     if (_$event.value !== "CUSTOM") {
@@ -116,10 +126,14 @@ export class PlanetaryOverviewComponent implements OnInit {
   }
 
   currentSunInfo() {
-    console.log("Current Sun Info works");
+    this.selectedCorp = true;
+    this.currentPlanetSelected = undefined;
+    this.currentSunSelected = this.currentSun;
   }
 
   currentPlanetInfo(index) {
+    this.selectedCorp = true;
+    this.currentSunSelected = undefined;
     this.currentPlanetSelected = this.currentPlanets[index];
   }
 }
