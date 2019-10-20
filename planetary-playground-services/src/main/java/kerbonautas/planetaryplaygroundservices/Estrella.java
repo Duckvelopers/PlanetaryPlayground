@@ -15,6 +15,7 @@ public class Estrella {
 	private double constanteLuminosidadSol = 3.86 * Math.pow(10, 26);
 	private double constanteRadioSol = 6.957 * Math.pow(10, 8);
 	private String name;
+	private String imagen;
 
 	private HashMap<String, String> descripciones = new HashMap<String, String>();
 	
@@ -83,6 +84,14 @@ public class Estrella {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
 
 	public void construirEstrella() {
 		setTemperatura(calcularTemperatura(getTipoEspectral()));
@@ -96,6 +105,7 @@ public class Estrella {
 		
 		setLuminosidad(calcularLuminosidad(getMasa()));
 		setMagnitudAbsoluta(calcularMagnitudAbsoluta(getLuminosidad()));
+		this.imagen="s"+this.tipoEspectral;
 	}
 	
 	public double calcularTemperatura(String tipoEspectral) {
