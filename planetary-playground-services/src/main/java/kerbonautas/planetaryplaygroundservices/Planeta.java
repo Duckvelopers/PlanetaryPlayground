@@ -149,7 +149,6 @@ public class Planeta {
 		if (StarVariables.eng) {
 			descripciones.put("CAMPOMAGNETICO", IngDefs.explicacionCampoMagnetico(isSolid));
 			descripciones.put("DISTANCIA", IngDefs.explicacionDistancia(isSolid));
-			descripciones.put("DISTANCIAAESTRELLA", IngDefs.explicacionDistanciaAEstrella());
 			descripciones.put("DURACIONDIA", IngDefs.explicacionDuracionDia());
 			descripciones.put("GASEOSOONO", IngDefs.explicacionGaseosoONo(isSolid));
 			descripciones.put("MASA", IngDefs.explicacionMasa());
@@ -162,7 +161,6 @@ public class Planeta {
 		} else {
 			descripciones.put("CAMPOMAGNETICO", EsDefs.explicacionCampoMagnetico(isSolid));
 			descripciones.put("DISTANCIA", EsDefs.explicacionDistancia(isSolid));
-			descripciones.put("DISTANCIAAESTRELLA", EsDefs.explicacionDistanciaAEstrella());
 			descripciones.put("DURACIONDIA", EsDefs.explicacionDuracionDia());
 			descripciones.put("GASEOSOONO", EsDefs.explicacionGaseosoONo(isSolid));
 			descripciones.put("MASA", EsDefs.explicacionMasa());

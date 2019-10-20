@@ -115,14 +115,6 @@ public class IngDefs {
 		return str.toString();
 	}
 	
-	public static String explicacionDistanciaAEstrella() {
-		StringBuilder str = new StringBuilder();
-		
-		str.append("");
-		
-		return str.toString();
-	}
-	
 	public static String explicacionPeriodoOrbital() {
 		StringBuilder str = new StringBuilder();
 		
