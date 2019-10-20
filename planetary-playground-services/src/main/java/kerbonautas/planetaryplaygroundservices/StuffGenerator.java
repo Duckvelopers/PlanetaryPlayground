@@ -187,6 +187,15 @@ public class StuffGenerator {
 	public static double temperaturaSuperficial(double auxDistanciaEstrella, double auxTemperaturaEstrella, double auxLuminosidadEstrella) {
 		double auxTemperaturaSuperficial = 0;
 		double limiteInferior = (0.72 - ((2.7619 * Math.pow(10, -5)) * (auxTemperaturaEstrella - 5700)) - ((3.8095 * Math.pow(10, -9)) * Math.pow((auxTemperaturaEstrella - 5700), 2))) * Math.sqrt(auxLuminosidadEstrella);
+		double limiteSuperior = (1.77 - ((1.3786 * Math.pow(10, -4)) * (auxTemperaturaEstrella - 5700)) - ((1.4286 * Math.pow(10, -9)) * Math.pow((auxTemperaturaEstrella - 5700), 2))) * Math.sqrt(auxLuminosidadEstrella);
+		double variableRandom = Math.random();
+		if(auxDistanciaEstrella > limiteInferior && auxDistanciaEstrella < limiteSuperior) {
+			auxTemperaturaSuperficial = (variableRandom * 155) + 245;
+		} else if(auxDistanciaEstrella < limiteInferior) {
+			auxTemperaturaSuperficial = (variableRandom * 250) + 350;
+		} else {
+			auxTemperaturaSuperficial = (variableRandom * 170) + 100;
+		}
 		return auxTemperaturaSuperficial;
 	}
 }
