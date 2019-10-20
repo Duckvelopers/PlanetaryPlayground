@@ -48,7 +48,7 @@ export interface Secuencia {
   value: number
 }
 
-export interface DescripcionesPlaneta {
+export interface DescripcionesPlaneta extends Map<unknown, unknown> {
   ATMOSFERA: string,
   CAMPOMAGNETICO: string,
   DISTANCIA: string,
@@ -63,7 +63,9 @@ export interface DescripcionesPlaneta {
   TEMPERATURA: string
 }
 
-export interface DescripcionesSol {
+export interface DescripcionesSol extends Map<unknown, unknown> {
+  CLASS: string,
+  SEQUENCE: string
 }
 
 @Component({
