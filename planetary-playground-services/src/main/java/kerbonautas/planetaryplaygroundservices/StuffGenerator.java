@@ -13,7 +13,7 @@ public class StuffGenerator {
 		int numPlanetas = ((int) (Math.random() * 6)) + 1;
 		String starName = star.getName().substring(0, star.getName().length() - 1);
 		for (int i = 0; i < numPlanetas; i++) {
-			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, star.getRadio(), star.getMasa(), starName + letter[i]));
+			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, star.getRadio(), star.getMasa(), star.getTemperatura(), star.getLuminosidad(), starName + letter[i]));
 		}
 		SistemaEstelar se = new SistemaEstelar(star, arrPlanets);
 		return se;
@@ -29,7 +29,7 @@ public class StuffGenerator {
 	}
 
 	public static Planeta generarPlanetaRandom(int secuencia, String tipoEspectral, double radioEstrella,
-			double masaEstrella, String nombre) {
+			double masaEstrella, double temperaturaEstrella, double luminosidadEstrella, String nombre) {
 		boolean auxEsTerrestre = esTerrestre(secuencia, tipoEspectral);
 		double auxDistanciaEstrella = distanciaEstrella(auxEsTerrestre, radioEstrella, masaEstrella);
 		double auxPeriodoOrbital = periodoOrbital(masaEstrella, auxDistanciaEstrella);
@@ -39,7 +39,7 @@ public class StuffGenerator {
 		double auxCampoMagnetico = campoMagnetico(auxEsTerrestre, auxMasa);
 		boolean auxTieneAtmosfera = tieneAtmosfera(auxCampoMagnetico);
 		double auxPresionAtmosferica = presionAtmosferica(auxTieneAtmosfera);
-		double auxTemperaturaSuperficial = temperaturaSuperficial(auxDistanciaEstrella);
+		double auxTemperaturaSuperficial = temperaturaSuperficial(auxDistanciaEstrella, temperaturaEstrella, luminosidadEstrella);
 		Planeta planet = new Planeta(auxRadio, auxTemperaturaSuperficial, auxEsTerrestre, auxMasa, auxTieneAtmosfera,
 				nombre, auxPresionAtmosferica, auxCampoMagnetico, auxDistanciaEstrella, auxPeriodoOrbital,
 				auxDuracionDia);
@@ -184,8 +184,9 @@ public class StuffGenerator {
 		return auxPresionAtmosferica;
 	}
 
-	public static double temperaturaSuperficial(double auxDistanciaEstrella) {
+	public static double temperaturaSuperficial(double auxDistanciaEstrella, double auxTemperaturaEstrella, double auxLuminosidadEstrella) {
 		double auxTemperaturaSuperficial = 0;
+		double limiteInferior = (0.72 - ((2.7619 * Math.pow(10, -5)) * (auxTemperaturaEstrella - 5700)) - ((3.8095 * Math.pow(10, -9)) * Math.pow((auxTemperaturaEstrella - 5700), 2))) * Math.sqrt(auxLuminosidadEstrella);
 		return auxTemperaturaSuperficial;
 	}
 }
