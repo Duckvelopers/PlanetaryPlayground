@@ -83,17 +83,15 @@ public class Limitador {
 	
 	public double calcularMasaMinima(double auxRadioMinimo, String auxTipoEspectral) {
 		double auxMasaMinima = 0;
-		auxMasaMinima = 4 * Math.PI * constanteSigma * Math.pow(constanteRadioSol, 2) * Math.pow(auxRadioMinimo, 2) * Math.pow(calcularTemperatura(auxTipoEspectral), 4);
-		auxMasaMinima = Math.pow(auxMasaMinima, 2/7);
-		auxMasaMinima = auxMasaMinima / constanteMasaSolar;
+		auxMasaMinima = Math.pow(auxRadioMinimo, 0.571429) * Math.pow(calcularTemperatura(auxTipoEspectral), 1.142857);
+		auxMasaMinima = auxMasaMinima * 0.0000502812630636157;
 		return auxMasaMinima;
 	}
 	
 	public double calcularMasaMaxima(double auxRadioMaximo, String auxTipoEspectral) {
 		double auxMasaMaxima = 0;
-		auxMasaMaxima = 4 * Math.PI * constanteSigma * Math.pow(constanteRadioSol, 2) * Math.pow(auxRadioMaximo, 2) * Math.pow(calcularTemperatura(auxTipoEspectral), 4);
-		auxMasaMaxima = Math.pow(auxMasaMaxima, 2/7);
-		auxMasaMaxima = auxMasaMaxima / constanteMasaSolar;
+		auxMasaMaxima = Math.pow(auxRadioMaximo, 0.571429) * Math.pow(calcularTemperatura(auxTipoEspectral), 1.142857);
+		auxMasaMaxima = auxMasaMaxima * 0.0000502812630636157;
 		return auxMasaMaxima;
 	}
 	
