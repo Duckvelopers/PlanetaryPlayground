@@ -131,10 +131,8 @@ public class Estrella {
 	
 	public double calcularRadio(double auxMasa, double auxTemperatura) {
 		double auxRadio = 0;
-		double auxMasaSolar = 1.989 * Math.pow(10, 30);
-		auxRadio = Math.pow(auxMasa, 7/2) * Math.pow(constanteLuminosidadSol, 7/2);
-		auxRadio = auxRadio / (4 * Math.PI * constanteSigma * (constanteRadioSol * constanteRadioSol) * (auxTemperatura * auxTemperatura * auxTemperatura * auxTemperatura));
-		auxRadio = Math.pow(auxRadio, 1/2);
+		auxRadio = Math.pow(auxMasa, 1.75) / Math.pow(auxTemperatura, 2);
+		auxRadio = auxRadio * 33307281.4906884;
 		return auxRadio;
 	}
 	
