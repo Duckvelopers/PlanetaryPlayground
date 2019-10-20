@@ -73,6 +73,7 @@ export class PlanetaryOverviewComponent implements OnInit {
   urlBase: string = 'http://planetplayground-env.wuakashtt6.eu-west-2.elasticbeanstalk.com';
 
   sequences: Secuencia[];
+  buttonDisabled: boolean;
   classifications: string[];
   radiusSliderValue: number;
   minRadius: number;
@@ -146,6 +147,7 @@ export class PlanetaryOverviewComponent implements OnInit {
       this.classificationControl.reset();
       this.classifications = response;
       this.classificationControl.enable();
+      this.buttonDisabled = true;
     });
   }
 
@@ -164,6 +166,7 @@ export class PlanetaryOverviewComponent implements OnInit {
       this.massSlider.disable();
       this.slidersRadios.reset();
       this.slidersRadios.enable();
+      this.buttonDisabled = true;
 
       this.radiusSlider.setValue(response[0]);
       this.radiusSliderValue = Math.round(response[0] * 10) / 10;;
@@ -243,13 +246,18 @@ export class PlanetaryOverviewComponent implements OnInit {
     if (selectedRadio === "RADIUS") {
       this.massSlider.disable();
       this.radiusSlider.enable();
+
+      this.buttonDisabled = false;
     } else {
       this.radiusSlider.disable();
       this.massSlider.enable();
+
+      this.buttonDisabled = false;
     }
   }
 
   disableAndResetAllControls() {
+    this.buttonDisabled = true;
     this.radiusSliderValue = undefined;
     this.massSliderValue = undefined;
     this.sequenceControl.disable();
@@ -262,6 +270,33 @@ export class PlanetaryOverviewComponent implements OnInit {
     this.radiusSlider.reset();
     this.massSlider.disable();
     this.massSlider.reset();
+  }
+
+  generateSolarSystem() {
+    let mass = 0.0;
+    let radius = 0.0;
+    if (this.slidersRadios.value === "RADIUS") {
+      radius = this.radiusSlider.value;
+    } else {
+      mass = this.massSlider.value;
+    }
+
+    const requestedStar = {
+      "SEQUENCE": `${this.sequenceControl.value}`,
+      "CLASS": `${this.classificationControl.value}`,
+      "RADIUS": `${radius}`,
+      "MASS": `${mass}`,
+    };
+
+    this._http.post(this.urlBase + '/custGen', requestedStar, {
+      headers:
+        { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+    }).subscribe((response: PredefResponse) => {
+      console.log(response);
+      this.currentSun = response.star
+      this.currentPlanets = response.ArrayPlanets;
+      this.displayRepresentation = true;
+    });
   }
 }
 

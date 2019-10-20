@@ -22,7 +22,10 @@
         "STELLAR_CLASSIFICATION": {
             "TITLE": "Stellar Classification"
         },
-        "SELECT_PARAMETER": "Select the parameter you'd like to use"
+        "SELECT_PARAMETER": "Select the parameter you'd like to use",
+        "RADIUS": "Radius",
+        "MASS": "Mass",
+        "GENERATE": "Generate!"
     },
     "DETAILS": {
         "INFO": {

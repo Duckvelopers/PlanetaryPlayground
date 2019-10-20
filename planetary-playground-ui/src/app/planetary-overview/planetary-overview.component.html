@@ -60,7 +60,7 @@
                                 (change)="radiusMassChange($event)" [formControl]="slidersRadios">
                                 <div fxLayout="row" fxLayoutAlign="space-around center">
                                     <mat-radio-button value="RADIUS">
-                                        {{ 'STAR_FORM.SELECTOR_RADIO.CUSTOM' | translate }}
+                                        {{ 'STAR_FORM.RADIUS' | translate }}
                                     </mat-radio-button>
                                     <mat-chip-list *ngIf="radiusSliderValue && radiusSlider.enabled">
                                         <mat-chip>{{formatRadius(radiusSliderValue)}}</mat-chip>
@@ -70,7 +70,7 @@
                                     (change)="radiusSliderChange($event)" [formControl]="radiusSlider"></mat-slider>
                                 <div fxLayout="row" fxLayoutAlign="space-around center">
                                     <mat-radio-button value="MASS">
-                                        {{ 'STAR_FORM.SELECTOR_RADIO.SUN' | translate }}
+                                        {{ 'STAR_FORM.MASS' | translate }}
                                     </mat-radio-button>
                                     <mat-chip-list *ngIf="massSliderValue && massSlider.enabled">
                                         <mat-chip>{{formatMass(massSliderValue)}}</mat-chip>
@@ -79,6 +79,11 @@
                                 <mat-slider step="0.1" [min]="minMass" [max]="maxMass"
                                     (change)="massSliderChange($event)" [formControl]="massSlider"></mat-slider>
                             </mat-radio-group>
+                        </div>
+
+                        <div fxLayout="column">
+                            <button mat-raised-button color="primary" (click)="generateSolarSystem()"
+                                [disabled]="buttonDisabled">{{'STAR_FORM.GENERATE' | translate}}</button>
                         </div>
                     </form>
                 </mat-card-content>
