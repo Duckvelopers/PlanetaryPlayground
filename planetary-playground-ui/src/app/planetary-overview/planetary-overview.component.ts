@@ -74,6 +74,12 @@ export class PlanetaryOverviewComponent implements OnInit {
 
   sequences: Secuencia[];
   classifications: string[];
+  radiusSliderValue: number;
+  minRadius: number;
+  maxRadius: number;
+  massSliderValue: number;
+  minMass: number;
+  maxMass: number;
 
   currentSun: StarObject;
   currentSunSelected: StarObject;
@@ -83,6 +89,9 @@ export class PlanetaryOverviewComponent implements OnInit {
 
   sequenceControl = new FormControl('');
   classificationControl = new FormControl('');
+  massSlider = new FormControl('');
+  radiusSlider = new FormControl('');
+  slidersRadios = new FormControl('');
   displayRepresentation: boolean;
 
   constructor(private _http: HttpClient, protected translate: TranslateService) {
@@ -101,8 +110,7 @@ export class PlanetaryOverviewComponent implements OnInit {
     this.currentPlanets = [];
     this.currentPlanetSelected = undefined;
 
-    this.sequenceControl.disable();
-    this.classificationControl.disable();
+    this.disableAndResetAllControls();
   }
 
   ngOnInit() {
@@ -113,12 +121,9 @@ export class PlanetaryOverviewComponent implements OnInit {
     this.selectedCorp = false;
     this.currentSunSelected = undefined;
     this.currentPlanetSelected = undefined;
+    this.disableAndResetAllControls();
 
     if (_$event.value !== "CUSTOM") {
-      this.sequenceControl.disable();
-      this.sequenceControl.reset();
-      this.classificationControl.disable();
-      this.classificationControl.reset();
       this.requestCustom(_$event.value);
     } else {
       this.sequenceControl.enable();
@@ -132,6 +137,12 @@ export class PlanetaryOverviewComponent implements OnInit {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     }).subscribe((response: string[]) => {
+      this.slidersRadios.disable();
+      this.slidersRadios.reset();
+      this.radiusSlider.disable();
+      this.radiusSlider.reset();
+      this.massSlider.disable();
+      this.massSlider.reset();
       this.classificationControl.reset();
       this.classifications = response;
       this.classificationControl.enable();
@@ -144,8 +155,22 @@ export class PlanetaryOverviewComponent implements OnInit {
     this._http.post(this.urlBase + '/espectral', requestedSequence, {
       headers:
         { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
-    }).subscribe((response: string[]) => {
-      console.log(response);
+    }).subscribe((response: number[]) => {
+      this.radiusSliderValue = undefined;
+      this.massSliderValue = undefined;
+      this.radiusSlider.reset();
+      this.radiusSlider.disable();
+      this.massSlider.reset();
+      this.massSlider.reset();
+      this.slidersRadios.reset();
+      this.slidersRadios.enable();
+
+      this.radiusSlider.setValue(response[0]);
+      this.minRadius = response[0];
+      this.maxRadius = response[1];
+      this.massSlider.setValue(response[2]);
+      this.minMass = response[2];
+      this.maxMass = response[3];
     });
   }
 
@@ -192,6 +217,49 @@ export class PlanetaryOverviewComponent implements OnInit {
         break;
     }
     return translation;
+  }
+
+  formatRadius(value: number) {
+    return `${value}R\u2609`;
+  }
+
+  formatMass(value: number) {
+    return `${value}M\u2609`;
+  }
+
+  radiusSliderChange(_$event) {
+    this.radiusSliderValue = _$event.value;
+  }
+
+  massSliderChange(_$event) {
+    this.massSliderValue = _$event.value;
+  }
+
+  radiusMassChange(_$event) {
+    const selectedRadio = _$event.value;
+
+    if (selectedRadio === "RADIUS") {
+      this.massSlider.disable();
+      this.radiusSlider.enable();
+    } else {
+      this.radiusSlider.disable();
+      this.massSlider.enable();
+    }
+  }
+
+  disableAndResetAllControls() {
+    this.radiusSliderValue = undefined;
+    this.massSliderValue = undefined;
+    this.sequenceControl.disable();
+    this.sequenceControl.reset();
+    this.classificationControl.disable();
+    this.classificationControl.reset();
+    this.slidersRadios.disable();
+    this.slidersRadios.reset();
+    this.radiusSlider.disable();
+    this.radiusSlider.reset();
+    this.massSlider.disable();
+    this.massSlider.reset();
   }
 }
 

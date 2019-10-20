@@ -21,7 +21,8 @@
         },
         "STELLAR_CLASSIFICATION": {
             "TITLE": "Stellar Classification"
-        }
+        },
+        "SELECT_PARAMETER": "Select the parameter you'd like to use"
     },
     "DETAILS": {
         "INFO": {
