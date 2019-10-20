@@ -66,7 +66,7 @@ public class StuffGenerator {
 
 	public static double distanciaEstrella(boolean auxEsTerrestre, double auxRadioEstrella, double auxMasaEstrella) {
 		double auxDistanciaEstrella = 0;
-		double distanciaMinima = auxRadioEstrella * 32;
+		double distanciaMinima = (auxRadioEstrella * 32) * (4.649 * Math.pow(10, -6));
 		double distanciaMaxima = Math.pow(auxMasaEstrella, 2 / 3) * 50;
 		double distanciaFactible = distanciaMaxima - distanciaMinima;
 		if (auxEsTerrestre) {
@@ -90,7 +90,7 @@ public class StuffGenerator {
 	public static double periodoOrbital(double auxMasaEstrella, double auxDistanciaSol) {
 		double auxPeriodoOrbital = 0;
 		int segundosDia = 86400;
-		double constanteGravitacionUniversal = 6.674 * Math.pow(10, -11);
+		double constanteGravitacionUniversal = 3.965 * Math.pow(10, -14);
 		auxPeriodoOrbital = 4 * Math.pow(Math.PI, 2) * Math.pow(auxDistanciaSol, 3);
 		auxPeriodoOrbital = auxPeriodoOrbital / (constanteGravitacionUniversal * auxMasaEstrella);
 		auxPeriodoOrbital = Math.sqrt(auxPeriodoOrbital) / segundosDia;
