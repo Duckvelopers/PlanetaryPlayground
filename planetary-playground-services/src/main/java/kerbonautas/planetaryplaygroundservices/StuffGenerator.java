@@ -90,7 +90,7 @@ public class StuffGenerator {
 	public static double periodoOrbital(double auxMasaEstrella, double auxDistanciaSol) {
 		double auxPeriodoOrbital = 0;
 		int segundosDia = 86400;
-		double constanteGravitacionUniversal = 1.178 * Math.pow(10, 28);
+		double constanteGravitacionUniversal = 6.674 * Math.pow(10, -11);
 		auxPeriodoOrbital = 4 * Math.pow(Math.PI, 2) * Math.pow(auxDistanciaSol, 3);
 		auxPeriodoOrbital = auxPeriodoOrbital / (constanteGravitacionUniversal * auxMasaEstrella);
 		auxPeriodoOrbital = Math.sqrt(auxPeriodoOrbital) / segundosDia;
