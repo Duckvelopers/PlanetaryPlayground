@@ -3,7 +3,7 @@
         "STAR_CONFIGURE": "Solar system configurator",
         "DETAILS": "Details",
         "PLANET_DETAILS": "Planet {{name}} details",
-        "SUN_DETAILS": "Sun {{name}} details"
+        "SUN_DETAILS": "Star {{name}} details"
     },
     "STAR_FORM": {
         "SELECTOR_RADIO": {
@@ -21,7 +21,7 @@
             "WHITE_DWARF": "White Dwarf"
         },
         "STELLAR_CLASSIFICATION": {
-            "TITLE": "Stellar Classification"
+            "TITLE": "Spectral Type"
         },
         "SELECT_PARAMETER": "Select the parameter you'd like to use",
         "RADIUS": "Radius",
@@ -46,6 +46,7 @@
             "TEMPERATURE": "The surface temperature is {{temp}}K"
         },
         "SUN": {
+            "NAME": "The name of the star is '{{name}}'",
             "LUMINOSITY": "The luminosity is {{lum}}W",
             "RADIUS": "The radius of the star is {{rad}}R\u2609",
             "MAGNITUDE": "The absolute magnitude of the star is {{magnitude}}",

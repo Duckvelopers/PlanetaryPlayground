@@ -201,6 +201,12 @@
                         <mat-tab-group *ngIf="currentSunSelected">
                             <mat-tab label="{{ 'DETAILS.INFO.TITLE' | translate }}">
                                 <mat-list dense>
+                                    <mat-list-item *ngIf="currentSunSelected.name" class="less-font">
+                                        <mat-icon>info</mat-icon>
+                                        <span [translate]="'DETAILS.SUN.NAME'"
+                                            [translateParams]="{name: currentSunSelected.name}">
+                                        </span>
+                                    </mat-list-item>
                                     <mat-list-item *ngIf="currentSunSelected.luminosidad !== 0" class="less-font">
                                         <mat-icon>info</mat-icon>
                                         <span [translate]="'DETAILS.SUN.LUMINOSITY'"
