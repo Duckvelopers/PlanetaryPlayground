@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class StuffGenerator {
-	private static String[] letter = new String[] {" b"," c"," d"," e"," f"," g"," h"};
+	private static String[] letter = new String[] {"b","c","d","e","f","g","h"};
 	public static SistemaEstelar generarSistemaRandom(int secuencia, String espectral, double masa, double radio) {
 		Estrella star = new Estrella(secuencia, espectral, masa, radio);
 		ArrayList<Planeta> arrPlanets = new ArrayList<Planeta>();
 		int numPlanetas = ((int)(Math.random()*6))+1;
-		String starName = star.getName().split(" ")[0];
+		String starName = star.getName().substring(0, star.getName().length()-1);
 		for(int i=0;i<numPlanetas;i++) {
 			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, radio, masa, starName+letter[i]));
 		}

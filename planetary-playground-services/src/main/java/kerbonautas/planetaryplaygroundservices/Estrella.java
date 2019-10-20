@@ -30,7 +30,7 @@ public class Estrella {
 	}
 	
 	private String generarNombre() {
-		return "KBP "+(((int)(Math.random()*999999))+1)+" a";
+		return "KBS "+(((int)(Math.random()*999999))+1)+" a";
 	}
 
 	public int getSecuencia() {
