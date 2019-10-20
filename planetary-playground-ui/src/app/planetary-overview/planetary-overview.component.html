@@ -2,7 +2,7 @@
     <div fxFlex="35" fxLayout="row" class="space-background">
         <ng-container *ngIf="displayRepresentation">
             <div fxFlex="10" fxLayoutAlign="center center">
-                <img *ngIf="currentSun" src="../../assets/planets/Sun.png" class="sun" (click)="currentSunInfo()" />
+                <img *ngIf="currentSun" src="../../assets/planets/{{currentSun.imagen}}.png" class="sun" (click)="currentSunInfo()" />
             </div>
             <div fxFlex fxLayout="row" *ngFor="let planet of currentPlanets; index as i">
                 <div fxFlex fxLayoutAlign="space-evenly center">

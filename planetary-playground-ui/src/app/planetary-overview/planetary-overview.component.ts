@@ -31,6 +31,7 @@ export interface StarObject {
   constanteLuminosidadSol: number,
   constanteRadioSol: number,
   constanteSigma: number,
+  imagen: string,
   descripciones: DescripcionesSol,
   luminosidad: number,
   magnitudAbsoluta: number,
