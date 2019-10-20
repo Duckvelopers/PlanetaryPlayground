@@ -1,6 +1,7 @@
 package kerbonautas.planetaryplaygroundservices;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 public class StuffGenerator {
@@ -15,6 +16,7 @@ public class StuffGenerator {
 		for (int i = 0; i < numPlanetas; i++) {
 			arrPlanets.add(generarPlanetaRandom(secuencia, espectral, star.getRadio(), star.getMasa(), star.getTemperatura(), star.getLuminosidad(), starName + letter[i]));
 		}
+		Collections.sort(arrPlanets,(o1, o2) -> ((Double)(o1.getStarDistance())).compareTo((Double)o2.getStarDistance()));
 		SistemaEstelar se = new SistemaEstelar(star, arrPlanets);
 		return se;
 	}
