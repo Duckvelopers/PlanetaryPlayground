@@ -19,7 +19,6 @@
 		<java.version>13</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<orchid.version>0.17.6</orchid.version>
 	</properties>
 
 	<dependencies>
@@ -70,42 +69,7 @@
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>2.0.0</version>
 			</plugin>
-			<plugin>
-				<groupId>io.github.javaeden.orchid</groupId>
-				<artifactId>orchid-maven-plugin</artifactId>
-				<version>${orchid.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>io.github.javaeden.orchid</groupId>
-						<artifactId>OrchidAll</artifactId>
-						<version>${orchid.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<theme>${theme}</theme>
-					<version>${project.version}</version>
-					<baseUrl>${baseUrl}</baseUrl>
-					<srcDir>src/orchid/resources</srcDir>
-					<destDir>target/docs/orchid</destDir>
-					<runTask>build</runTask>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>jcenter</id>
-			<name>bintray-plugins</name>
-			<url>http://jcenter.bintray.com</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>kotlinx</id>
-			<url>https://kotlin.bintray.com/kotlinx</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>jitpack</id>
-			<url>https://jitpack.io</url>
-		</pluginRepository>
-	</pluginRepositories>
 </project>
