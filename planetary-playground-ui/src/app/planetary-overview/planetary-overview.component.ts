@@ -74,7 +74,7 @@ export interface DescripcionesSol extends Map<unknown, unknown> {
   styleUrls: ['./planetary-overview.component.scss']
 })
 export class PlanetaryOverviewComponent implements OnInit {
-  urlBase: string = 'http://planetplayground-env.wuakashtt6.eu-west-2.elasticbeanstalk.com';
+  urlBase: string = 'https://planetary-playground-service.herokuapp.com';
 
   sequences: Secuencia[];
   buttonDisabled: boolean;
